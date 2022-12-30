@@ -34,7 +34,7 @@ export default function Login() {
                       <input type="password" name="password" id="password" placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                   </div>
                   <div className="flex flex-row-reverse  items-center justify-between">
-                      <a href="/Verification" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</a>
+                      <a href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</a>
                   </div>
               <Link href="/Dashboard">    <button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button></Link>
                   <p className="text-sm text-center  text-black ">
