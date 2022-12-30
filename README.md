@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Payant-V1
 
-## Getting Started
+# The real problem
 
-First, run the development server:
+The major pain point of client-contractor relationships is trust:<br/>
+-> Will I get paid on time after I've delivered?<br/>
+-> Will the contractor deliver if he/she is paid beforehand?<br/>
+-> What if I am not happy with the work?
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Our solution
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-> A simple 'plug and play' Web 2.5 escrow for payments and deliverables.<br/>
+-> Removing the need for trust between contractors and clients (and customers) in an easy to use UI on top of simple Smart Contracts with legal contracts and case resolution for users.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+# Why Payant?
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Payant will make client-contractor relationships trustless.<br/>
+-> Seamless user experience putting the tech, the smart contracts and the swaps under the hood and focusing on providing value for our users.<br/>
+-> Transactions are wrapped with legal contracts- so you have peace of mind. If you're unhappy with a client's decision, this makes case resolution simple and quick.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Basic B2B User Flow V1
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Drag and drop invoice PDF<br/>
+2. Client get notified - Clients deposit to escrow on chain<br/>
+3. Contractor upload deliverables to smart contract<br/>
+4. Client gets notified - Clients confirms or ask for revisions<br/>
+5. Contractor withdraws (USDC)
 
-## Learn More
+# How it actually works
 
-To learn more about Next.js, take a look at the following resources:
+I'm a contractor and I don't know my new client, or if I will get paid on time.<br/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Create a Payment account [email+ password+ usdc wallet address]<br/>
+2. Create an invoice<br/>
+3. Upload invoice to Payant<br/>
+4. Client confirms & pays via their USDC wallet [signs the transactions on chain]<br/>
+5. I upload deliverable<br/>
+6. Client confirms the work is done (signs on chain)<br/>
+7. I receive the funds minus the withdrawal fee.
