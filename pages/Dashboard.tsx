@@ -96,10 +96,43 @@ export default function Dashboard() {
                     </button>
                   </div>
                 </Transition.Child>
-                <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
-                  <div className="flex-shrink-0 flex items-center px-4">
-                  <Image className="w-full h-12 mr-2" src={logo} alt="logo" />
+                <div className="flex-1 h-0 pt-5  pb-4 overflow-y-auto">
+                  <div className="flex-shrink-0 m-5  items-center px-4">
+                  <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
+              {isConnected ? (
+                <div className="flex gap-x-8">
                   
+                  <div>
+                    {" "}
+                    
+                    {ensName
+                      ? `${ensName} (${address})`
+                      : truncateEthAddress(address)}
+                  </div>
+                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                    Disconnect
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  {connectors.map((connector) => (
+                    <button
+                      disabled={!connector.ready}
+                      key={connector.id}
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
+                      onClick={() => connect({ connector })}
+                    >
+                      Connect Wallet
+                      {!connector.ready && " (unsupported)"}
+                      {isLoading &&
+                        connector.id === pendingConnector?.id &&
+                        " (connecting)"}
+                    </button>
+                  ))}
+
+                  {error && <div>{error.message}</div>}
+                </div>
+              )} 
                   </div>
                   <nav className="mt-5 px-2 space-y-1">
                     {navigation.map((item) => (
