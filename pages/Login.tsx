@@ -2,7 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
-import Signup from "./Signup";
 
 export default function Login() {
   return (
