@@ -13,6 +13,14 @@ import {
   XIcon,
 } from '@heroicons/react/outline'
 import Head from 'next/head';
+import {
+  useAccount,
+  useConnect,
+  useDisconnect,
+  useEnsAvatar,
+  useEnsName,
+} from "wagmi";
+import truncateEthAddress from "truncate-eth-address";
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -29,6 +37,12 @@ function classNames(...classes) {
 
 export default function Dashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { address, isConnected } = useAccount();
+  const { data: ensName } = useEnsName({ address });
+  const { connect, connectors, error, isLoading, pendingConnector } =
+    useConnect();
+  const { disconnect } = useDisconnect();
 
   return (
     <>
@@ -125,7 +139,41 @@ export default function Dashboard() {
             <div className="flex-1 flex flex-col pt-5 m-5 pb-4 overflow-y-auto">
               <div className="items-center text-center flex-shrink-0 px-4">
               <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
-              <button className=' border-2 pr-8 rounded-md pl-8 border-violet-800'> Connect Wallet</button>
+              {isConnected ? (
+                <div className="lg:flex lg:gap-x-8">
+                  
+                  <div>
+                    {" "}
+                    
+                    {ensName
+                      ? `${ensName} (${address})`
+                      : truncateEthAddress(address)}
+                  </div>
+                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                    Disconnect
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  {connectors.map((connector) => (
+                    <button
+                      disabled={!connector.ready}
+                      key={connector.id}
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
+                      onClick={() => connect({ connector })}
+                    >
+                      Connect Wallet
+                      {!connector.ready && " (unsupported)"}
+                      {isLoading &&
+                        connector.id === pendingConnector?.id &&
+                        " (connecting)"}
+                    </button>
+                  ))}
+
+                  {error && <div>{error.message}</div>}
+                </div>
+              )}
+            
               </div>
               <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
                 {navigation.map((item) => (
