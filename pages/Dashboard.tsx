@@ -233,7 +233,6 @@ const Dashboard = () => {
                 ))}
               </nav>
             </div>
-            
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
