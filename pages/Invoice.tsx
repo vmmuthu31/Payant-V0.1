@@ -25,10 +25,10 @@ import dynamic from "next/dynamic";
 
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
-  { name: 'Create an invoice', href: '#', icon: PlusCircleIcon, current: false },
+  { name: 'Create an invoice', href: '#', icon: PlusCircleIcon, current: true },
   { name: 'Deliverables', href: '#', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
-  { name: 'Settings', href: '/Settings', icon: CogIcon, current: true },
+  { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
 ]
 
