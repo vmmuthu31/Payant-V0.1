@@ -46,9 +46,9 @@ const Signup = () => {
                       <div className="flex items-start">
                           
                       </div>
-                      <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</a>
+                      <Link href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</Link>
                   </div>
-                  <button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign Up</button>
+               <Link href="/Login"><button type="submit" className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign Up</button></Link>
                   <p className="text-sm text-center  text-black ">
                       Already a User? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-blue-500"><Link href="/Login"> Login</Link></a>
                   </p>
