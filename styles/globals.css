@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.btn-grad3 {
+    background-image: linear-gradient(to right, #16BFFD 0%, #CB3066  51%, #16BFFD  100%);
+    margin: 10px;
+    padding: 12px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad3:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+
+           
+  .btn-grad {
+    background-image: linear-gradient(to right, #ee0979 0%, #ff6a00  51%, #ee0979  100%);
+    padding: 10px 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+  .animation-box {
+    min-height: 100vh;
+    background-color: #5789f5;
+    color: #f719ce;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
