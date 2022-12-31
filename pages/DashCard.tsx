@@ -34,7 +34,7 @@ export default function DashCard() {
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
             <p>Awaiting Payment</p>
-          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 text-gray-900 md:text-2xl ">
+          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 md:text-2xl ">
               $2,055
               </p>
               </div>
