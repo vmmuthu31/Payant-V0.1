@@ -53,4 +53,6 @@
     justify-content: center;
   }
   
-  
+  .grow{
+    flex: 1 
+  }
