@@ -100,10 +100,10 @@ export default function DashCard() {
               </div>
       </div>
   </div>
-  <div className="lg:flex gap-20 items-center justify-center  mx-auto ">
-  <div className="w-full mt-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-             <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
-             <div className="flex justify-between">
+  <div className="lg:flex gap-20 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
+  <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
+          <div className="flex justify-between">
              <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
                  Transaction Details
                  </p>
