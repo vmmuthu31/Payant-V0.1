@@ -24,11 +24,11 @@ import dynamic from "next/dynamic";
 
 
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+  { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
   { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false },
   { name: 'Deliverables', href: '#', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
-  { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
+  { name: 'Settings', href: '#', icon: CogIcon, current: true },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
 ]
 
@@ -36,7 +36,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Dashboard = () => {
+const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { address, isConnected } = useAccount();
@@ -265,4 +265,4 @@ const Dashboard = () => {
   )
 }
 
-export default dynamic (() => Promise.resolve(Dashboard), {ssr: false})
+export default dynamic (() => Promise.resolve(Settings), {ssr: false})
