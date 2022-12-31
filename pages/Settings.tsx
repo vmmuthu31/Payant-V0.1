@@ -21,6 +21,7 @@ import {
 } from "wagmi";
 import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
+import Link from 'next/link';
 
 
 const navigation = [
@@ -137,7 +138,7 @@ const Settings = () => {
                   </div>
                   <nav className="mt-5 px-2 space-y-1">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className={classNames(
@@ -155,7 +156,7 @@ const Settings = () => {
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>
@@ -211,7 +212,7 @@ const Settings = () => {
               </div>
               <nav className="mt-5 flex-1 px-2 bg-white space-y-1">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     className={classNames(
@@ -227,7 +228,7 @@ const Settings = () => {
                       aria-hidden="true"
                     />
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
