@@ -22,6 +22,8 @@ import {
 import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
+import Login from './Login';
+import Form from './form';
 
 
 const navigation = [
@@ -247,18 +249,9 @@ const Invoice = () => {
             </button>
           </div>
           <main >
-            <div className="py-6">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                <h1 className="text-2xl font-semibold text-gray-900">Create an Invoice</h1>
-              </div>
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                {/* Replace with your content */}
-                <div className="py-4">
-                  
+                <div >
+                  <Form />
                 </div>
-                {/* /End replace */}
-              </div>
-            </div>
           </main>
         </div>
       </div>
