@@ -17,10 +17,11 @@ import {
   useAccount,
   useConnect,
   useDisconnect,
-  useEnsAvatar,
   useEnsName,
 } from "wagmi";
 import truncateEthAddress from "truncate-eth-address";
+import dynamic from "next/dynamic";
+
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -35,7 +36,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Dashboard() {
+const Dashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { address, isConnected } = useAccount();
@@ -263,3 +264,5 @@ export default function Dashboard() {
     </>
   )
 }
+
+export default dynamic (() => Promise.resolve(Dashboard), {ssr: false})

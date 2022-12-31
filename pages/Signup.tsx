@@ -2,8 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
+import dynamic from "next/dynamic";
 
-export default function Signup() {
+const Signup = () => {
   return (
     <>
       <Head>
@@ -15,7 +16,10 @@ export default function Signup() {
      <section className="bg-gray-50 ">
      
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      
+      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+          <Image className="w-full h-12 mr-2" src={logo} alt="logo" />
+
+      </a>
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <p className="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -57,3 +61,5 @@ export default function Signup() {
     </>
   )
 }
+
+export default dynamic (() => Promise.resolve(Signup), {ssr: false})

@@ -15,10 +15,10 @@ export default function Login() {
      <section className="bg-gray-50 ">
      
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <div className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
           <Image className="w-full h-12 mr-2" src={logo} alt="logo" />
 
-      </a>
+      </div>
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <p className="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -34,11 +34,11 @@ export default function Login() {
                       <input type="password" name="password" id="password" placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                   </div>
                   <div className="flex flex-row-reverse  items-center justify-between">
-                      <a href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</a>
+                      <Link href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</Link>
                   </div>
               <Link href="/Dashboard">    <button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button></Link>
                   <p className="text-sm text-center  text-black ">
-                      Not a user yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-blue-500"><Link href="/Signup">Sign up</Link></a>
+                      Not a user yet? <Link href="/Signup" className="font-medium text-primary-600 hover:underline dark:text-blue-500">Sign up</Link>
                   </p>
               </form>
           </div>
