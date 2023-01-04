@@ -65,7 +65,7 @@ export default function DashCard() {
       </div> 
           </div>
       </div>
-      <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+      <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md md:max-w-2xl xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
           <div className="flex justify-between">
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -77,24 +77,28 @@ export default function DashCard() {
                     <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
+                    <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
               <div className="flex justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
+                    <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
               <div className="flex justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
+                    <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
               <div className="flex justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
+                    <p>Deadline</p>
                     <p>$2,352.00</p>
               </div> 
               </div>
@@ -147,6 +151,25 @@ export default function DashCard() {
                  Dashboard
                  </p>
                  </div>
+                 <div className="flex justify-between">
+                    <p>Client Name</p>
+                    <p>Awaiting Period</p>
+                    <p>Total Paid Out</p>
+              </div> 
+              <div className="flex justify-between">
+                    <p>Payant</p>
+                    <p>$2,120.00</p>
+                    <p className="text-green-500">$3,325.00</p>
+              </div>               <div className="flex justify-between">
+              <p>Payant</p>
+                    <p>$2,120.00</p>
+                    <p className="text-green-500">$3,325.00</p>
+              </div> 
+              <div className="flex justify-between">
+              <p>Payant</p>
+                    <p>$2,120.00</p>
+                    <p className="text-green-500">$3,325.00</p>
+              </div> 
              </div>
          </div>
         </div>
