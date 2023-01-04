@@ -211,7 +211,11 @@ export default function SetCard() {
               
           </div>
       </div>
+      <div className="w-full mt-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
+         
+      </div>
   </div>
+  
 </section>
       
     </>
