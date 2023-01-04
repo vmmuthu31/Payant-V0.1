@@ -14,7 +14,7 @@ export default function DashCard() {
       </Head>
      <section className="bg-gray-50 ">
      
-  <div className="lg:flex gap-20 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
+  <div className="lg:flex gap-10 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
      
   <div className="w-full  rounded-lg md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8"> 
@@ -71,7 +71,7 @@ export default function DashCard() {
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Recent Invoices
               </p>
-              <Link href="/Invoice"><button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">Create Invoice</button></Link>
+              <Link href="/Invoice"><button className="pr-8 p-1 text-white bg-indigo-600 rounded-md pl-8 ">Create Invoice</button></Link>
               </div>
               <div className="flex pt-2 justify-between">
                     <p>#1</p>
@@ -104,53 +104,63 @@ export default function DashCard() {
               </div>
       </div>
   </div>
-  <div className="lg:flex gap-20 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
-  <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+  <div className="lg:flex gap-8 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
+  <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md lg:max-w-3xl xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
           <div className="flex justify-between">
              <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                 Transaction Details
+                 Transaction History
                  </p>
                  <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">View all</button>
                  </div>
                  <div className="flex pt-2 justify-between">
-                    <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>$2,352.00</p>
+                    <p>#52</p>
+                    <p>Deposit</p>
+                    <p>From</p>
+                    <p>To</p>
+                    <p>Date</p>
+                    <p>Amount</p>
               </div>
               <div className="flex justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>$2,352.00</p>
+              <p>#52</p>
+                    <p>Deposit</p>
+                    <p>From</p>
+                    <p>To</p>
+                    <p>Date</p>
+                    <p>Amount</p>
               </div>
               <div className="flex justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>$2,352.00</p>
+              <p>#52</p>
+                    <p>Deposit</p>
+                    <p>From</p>
+                    <p>To</p>
+                    <p>Date</p>
+                    <p>Amount</p>
               </div>
               <div className="flex justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>$2,352.00</p>
-              </div>
-                
+              <p>#52</p>
+                    <p>Deposit</p>
+                    <p>From</p>
+                    <p>To</p>
+                    <p>Date</p>
+                    <p>Amount</p>
+              </div>           
              </div>
          </div>
-     <div className="w-full  rounded-lg md:mt-0 sm:max-w-md  xl:p-0">
+     <div className="w-full  rounded-lg md:mt-0 sm:max-w-md lg:max-w-lg xl:p-0">
              <div className="p-6 space-y-4 md:space-y-4 sm:p-8"> 
              <div className="flex gap-14"> 
-           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md lg:max-w-lg xl:p-0">
    
-             <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
-             <div>
-             <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                 Dashboard
+             <div className="p-6  space-y-4 md:space-y-4 sm:p-8">
+             <div className="flex justify-between">
+             <p className="text-xl  font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                 Client(s)
                  </p>
+                 <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">Create Client</button>
                  </div>
+                 
+                 
                  <div className="flex justify-between">
                     <p>Client Name</p>
                     <p>Awaiting Period</p>
