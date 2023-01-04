@@ -6,6 +6,9 @@ import 'reactjs-popup/dist/index.css';
 import Popup from 'reactjs-popup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  CogIcon,
+} from '@heroicons/react/outline'
 
 export default function DashCard() {
   const notify = () => toast.success("New Client added!");
@@ -80,7 +83,7 @@ export default function DashCard() {
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Recent Invoices
               </p>
-              <Link href="/Invoice"><button className=" border-2 pr-8 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Invoice</button></Link>
+              <Link href="/Invoice"><button className="border-2 pr-6 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-6 border-indigo-600 flex">Create Invoice &nbsp; <CogIcon className="w-6 h-6"/> </button></Link>
               </div>
               <div className="flex pt-2 justify-between">
                     <p>#1</p>
@@ -167,7 +170,7 @@ export default function DashCard() {
                  Client(s)
                  </p>
                  <Popup
-    trigger={<button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Client</button>}
+    trigger={<button className="border-2 pr-6 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-6 border-indigo-600 flex">New Client &nbsp; <CogIcon className="w-6 h-6"/> </button>}
     modal
 
   >

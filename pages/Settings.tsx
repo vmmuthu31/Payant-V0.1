@@ -23,10 +23,6 @@ import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import SetCard from './SetCard';
-import 'reactjs-popup/dist/index.css';
-import Popup from 'reactjs-popup';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
@@ -46,7 +42,7 @@ const Settings = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { address, isConnected } = useAccount();
-  const notify = () => toast.success("Password Changed!");
+  
   const { data: ensName } = useEnsName({ address });
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();

@@ -2,8 +2,18 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
+import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default function SetCard() {
+      const notify = () => toast.success("Password Changed!");
+  function handlesubmit() {
+    notify();
+    close();
+  }
   return (
     <>
       <Head>
@@ -22,7 +32,59 @@ export default function SetCard() {
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Personal Details
               </p>
-              <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">Edit</button>
+              <Popup
+    trigger={<button className="border-2 pr-8 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Edit</button>}
+    modal
+
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="content">
+        <div className="">
+          <div className="p-6 space-y-2 ">
+              <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                  Add Client
+              </p>
+              <form className="space-y-4 md:space-y-4" >
+                 <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Client's Name" required />
+                  </div>
+                  <div>
+                      <input type="email" name="email" id="email" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
+                  </div>
+                  <div>
+                      <input type="address" name="address" id="address" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Registration Number (Optional)" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tax ID (Optional)" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VAT ID (Optional)" required />
+                  </div>
+                  
+             <button onClick={handlesubmit}  className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Create Client</button>
+             <ToastContainer />
+             </form>   
+          </div>
+      </div>
+       
+      </div>
+      </div>
+    )}
+  </Popup>
+              
               </div>
             
               <div className="flex justify-between">
@@ -50,7 +112,58 @@ export default function SetCard() {
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Bussiness Details
               </p>
-              <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">Edit</button>
+              <Popup
+    trigger={<button className="border-2 pr-8 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Edit</button>}
+    modal
+
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="content">
+        <div className="">
+          <div className="p-6 space-y-2 ">
+              <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                  Add Client
+              </p>
+              <form className="space-y-4 md:space-y-4" >
+                 <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Client's Name" required />
+                  </div>
+                  <div>
+                      <input type="email" name="email" id="email" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
+                  </div>
+                  <div>
+                      <input type="address" name="address" id="address" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Registration Number (Optional)" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tax ID (Optional)" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VAT ID (Optional)" required />
+                  </div>
+                  
+             <button onClick={handlesubmit}  className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Create Client</button>
+             <ToastContainer />
+             </form>   
+          </div>
+      </div>
+       
+      </div>
+      </div>
+    )}
+  </Popup>
               </div>
               <div className="flex justify-between">
                     <p>First Name</p>
