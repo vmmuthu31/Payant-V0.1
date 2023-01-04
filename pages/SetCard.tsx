@@ -10,10 +10,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function SetCard() {
       const notify = () => toast.success("Password Changed!");
-  function handlesubmit() {
-    notify();
-    close();
-  }
   return (
     <>
       <Head>
@@ -26,7 +22,7 @@ export default function SetCard() {
      
   <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
      
-  <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+  <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div className="flex justify-between">
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -46,7 +42,7 @@ export default function SetCard() {
         <div className="">
           <div className="p-6 space-y-2 ">
               <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                  Add Client
+              Change Personal Details
               </p>
               <form className="space-y-4 md:space-y-4" >
                  <div>
@@ -67,7 +63,7 @@ export default function SetCard() {
                   <div>
                       <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country" required />
                   </div>
-             <button onClick={handlesubmit}  className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
+             <button type="submit"  className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
              <ToastContainer />
              </form>   
           </div>
@@ -81,25 +77,32 @@ export default function SetCard() {
               </div>
             
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Full Name</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Phone Number</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Email Address</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Address</p>
+                    <p>From Signup</p>
               </div>
-              <Link href="#">    <button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button></Link>
-          </div>
+              <div className="flex justify-between">
+                    <p>City</p>
+                    <p>From Signup</p>
+              </div>
+              <div className="flex justify-between">
+                    <p>Country</p>
+                    <p>From Signup</p>
+              </div>
+             </div>
       </div>
-      <div className="w-full mt-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+      <div className="w-full mt-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div className="flex justify-between">
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
@@ -119,7 +122,7 @@ export default function SetCard() {
         <div className="">
           <div className="p-6 space-y-2 ">
               <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                  Add Client
+                  Change Bussiness Details
               </p>
               <form className="space-y-4 md:space-y-4" >
                  <div>
@@ -129,18 +132,21 @@ export default function SetCard() {
                       <input type="address" name="address" id="address" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" required />
                   </div>
                   <div>
-                      <input type="address" name="address" id="address" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Address" required />
-                  </div>
-                  <div>
-                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required />
+                      <input type="address" name="address" id="address" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="City" required />
                   </div>
                   <div>
                       <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country" required />
                   </div>
                   <div>
-                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Country" required />
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Registration Number" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Tax ID" required />
                   </div> 
-             <button onClick={handlesubmit}  className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VAT ID" required />
+                  </div> 
+             <button type="submit" className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
              <ToastContainer />
              </form>   
           </div>
@@ -152,22 +158,33 @@ export default function SetCard() {
   </Popup>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Legal Bussiness Name</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Registration Number (Optional)</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>Tax ID (Optional)</p>
+                    <p>From Signup</p>
               </div>
               <div className="flex justify-between">
-                    <p>First Name</p>
-                    <p>XXXX</p>
+                    <p>VAT ID (Optional)</p>
+                    <p>From Signup</p>
               </div>
-              <Link href="#">    <button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Save</button></Link>
+              <div className="flex justify-between">
+                    <p>Address</p>
+                    <p>From Signup</p>
+              </div>
+              <div className="flex justify-between">
+                    <p>City</p>
+                    <p>From Signup</p>
+              </div>
+              <div className="flex justify-between">
+                    <p>Country</p>
+                    <p>From Signup</p>
+              </div>
           </div>
       </div>
   </div>
