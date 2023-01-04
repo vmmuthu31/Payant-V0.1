@@ -147,7 +147,6 @@ export default function SetCard() {
                       <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="VAT ID" required />
                   </div> 
              <button type="submit" className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
-             <ToastContainer />
              </form>   
           </div>
       </div>
@@ -206,7 +205,7 @@ export default function SetCard() {
                   <div>
                       <input type="Password" name="Password" id="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" required />
                   </div>
-             <button type="submit" className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
+             <button type="submit" onClick={notify} className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Change Password</button>
              <ToastContainer />
              </form>   
               
