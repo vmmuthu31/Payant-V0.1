@@ -247,7 +247,7 @@ const Dashboard = () => {
             </button>
           </div>
           <main >
-            <div className="py-6">
+            <div >
              <DashCard />
             </div>
           </main>

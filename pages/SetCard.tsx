@@ -20,7 +20,7 @@ export default function SetCard() {
       </Head>
      <section className="bg-gray-50 ">
      
-  <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto mt-20 lg:py-0">
+  <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto mt-10 lg:py-0">
      
   <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">

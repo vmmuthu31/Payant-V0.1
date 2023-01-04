@@ -248,8 +248,8 @@ const Settings = () => {
               <MenuIcon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <main >
-            <div>
+          <main className='bg-gray-50' >
+            <div >
               <SetCard />
             </div>
           </main>

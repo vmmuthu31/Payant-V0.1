@@ -249,7 +249,7 @@ const Invoice = () => {
             </button>
           </div>
           <main >
-                <div >
+                <div>
                   <Form />
                 </div>
           </main>
