@@ -24,6 +24,7 @@ import dynamic from "next/dynamic";
 import Link from 'next/link';
 import Login from './Login';
 import Form from './form';
+import UserForm from './UseForm';
 
 
 const navigation = [
@@ -249,8 +250,9 @@ const Invoice = () => {
             </button>
           </div>
           <main >
-                <div>
-                  <Form />
+                <div className='  py-36'>
+                  
+                  <UserForm />
                 </div>
           </main>
         </div>

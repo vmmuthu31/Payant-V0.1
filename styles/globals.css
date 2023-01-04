@@ -89,3 +89,29 @@
     border-radius: 18px;
     border: 1px solid #cfcece;
   }
+
+  .step {
+  color: white;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: #664de5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step.completed {
+  background-color: #664de5;
+}
+
+.btn {
+  width: 100%;
+  background-color: #664de5;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
