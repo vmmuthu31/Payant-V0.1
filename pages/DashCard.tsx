@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
+import 'reactjs-popup/dist/index.css';
+import Popup from 'reactjs-popup';
 
 export default function DashCard() {
   return (
@@ -157,7 +159,58 @@ export default function DashCard() {
              <p className="text-xl  font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
                  Client(s)
                  </p>
-                 <button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Client</button>
+                 <Popup
+    trigger={<button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Client</button>}
+    modal
+
+  >
+    {close => (
+      <div className="modal">
+        <button className="close" onClick={close}>
+          &times;
+        </button>
+        <div className="content">
+        <div className="">
+          <div className="p-6 space-y-2 ">
+              <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
+                  Add a Client
+              </p>
+              <form className="space-y-4 md:space-y-6" action="#">
+                 <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Client's Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                  <div>
+                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                  </div>
+                 
+             <button type="submit" className="w-full mt-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Create Client</button>
+              </form>
+          </div>
+      </div>
+       
+      </div>
+      </div>
+    )}
+  </Popup>
+                 
                  </div>
                  
                  
