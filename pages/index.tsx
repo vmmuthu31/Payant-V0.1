@@ -23,7 +23,6 @@ function App() {
             loading={loading}
             size={30}
             color="#f7d919"
-            css={override}
           />
         </div>
       ) : (
