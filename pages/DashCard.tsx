@@ -71,7 +71,7 @@ export default function DashCard() {
           <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Recent Invoices
               </p>
-              <Link href="/Invoice"><button className="pr-8 p-1 text-white bg-indigo-600 rounded-md pl-8 ">Create Invoice</button></Link>
+              <Link href="/Invoice"><button className=" border-2 pr-8 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Invoice</button></Link>
               </div>
               <div className="flex pt-2 justify-between">
                     <p>#1</p>
@@ -111,7 +111,7 @@ export default function DashCard() {
              <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
                  Transaction History
                  </p>
-                 <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">View all</button>
+                 <button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">View all</button>
                  </div>
                  <div className="flex pt-2 justify-between">
                     <p>#52</p>
@@ -157,7 +157,7 @@ export default function DashCard() {
              <p className="text-xl  font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
                  Client(s)
                  </p>
-                 <button className=" border-2 pr-8 rounded-md pl-8 border-violet-800">Create Client</button>
+                 <button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">Create Client</button>
                  </div>
                  
                  
