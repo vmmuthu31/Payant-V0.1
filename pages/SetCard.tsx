@@ -20,7 +20,7 @@ export default function SetCard() {
       </Head>
      <section className="bg-gray-50 ">
      
-  <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+  <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto mt-10 lg:py-0">
      
   <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
@@ -185,6 +185,31 @@ export default function SetCard() {
                     <p>Country</p>
                     <p>From Signup</p>
               </div>
+          </div>
+      </div>
+  </div>
+  <div className="lg:flex gap-20 items-center justify-center px-6 py-8 mx-auto mt-10 lg:py-0">
+  <div className="w-full mt-5 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-lg xl:p-0">
+          <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
+          <div className="flex justify-between">
+          <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
+              Change Password
+              </p>
+              </div>
+              <form className="space-y-4 md:space-y-4" >
+                 <div>
+                      <input type="Password" name="Password" id="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Existing Password" required />
+                  </div>
+                  <div>
+                      <input type="Password" name="Password" id="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="New Password" required />
+                  </div>
+                  <div>
+                      <input type="Password" name="Password" id="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Confirm New Password" required />
+                  </div>
+             <button type="submit" className="w-full font-medium rounded-lg text-sm px-5 py-2.5 text-center hover:text-white hover:bg-indigo-600 border-2 pr-8  pl-8 border-indigo-600">Save Changes</button>
+             <ToastContainer />
+             </form>   
+              
           </div>
       </div>
   </div>
