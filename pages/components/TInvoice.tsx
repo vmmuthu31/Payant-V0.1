@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const ThirdStep = (props) => {
+const TInvoice = (props) => {
   return (
     <div className="form">
       <input
@@ -22,4 +22,4 @@ const ThirdStep = (props) => {
     </div>
   );
 };
-export default ThirdStep;
+export default TInvoice;

@@ -1,4 +1,4 @@
-const FirstStep = (props) => {
+const FInvoice= (props) => {
   return (
     <div className="form">
       <input
@@ -19,4 +19,4 @@ const FirstStep = (props) => {
     </div>
   );
 };
-export default FirstStep;
+export default FInvoice;

@@ -1,6 +1,6 @@
 import React from "react";
 
-const SecondStep = (props) => {
+const SInvoice = (props) => {
   return (
     <div className="form">
     <input
@@ -21,4 +21,4 @@ const SecondStep = (props) => {
   </div>
   );
 };
-export default SecondStep;
+export default SInvoice;

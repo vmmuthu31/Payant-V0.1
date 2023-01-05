@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import FirstStep from "./components/FInvoice";
-import SecondStep from "./components/SInvoice";
-import ThirdStep from "./components/TInvoice";
-import LastStep from "./components/LInvoice";
+import FInvoice from "./components/FInvoice";
+import SInvoice from "./components/SInvoice";
+import TInvoice from "./components/TInvoice";
+import LInvoice from "./components/LInvoice";
 import MultiStepProgressBar from "./components/MultiStepProgressBar";
 import Link from "next/link";
 
@@ -38,12 +38,12 @@ const UseInvoice = () => {
 
   const PageDisplay = () => {
     if (page === 0)
-      return <FirstStep nextStep={nextStep} handleChange={handleChange} />;
+      return <FInvoice nextStep={nextStep} handleChange={handleChange} />;
     else if (page === 1)
-      return <SecondStep nextStep={nextStep} handleChange={handleChange} />;
+      return <SInvoice nextStep={nextStep} handleChange={handleChange} />;
     else if (page === 2)
-      return <ThirdStep nextStep={nextStep} handleChange={handleChange} />;
-    else return <LastStep nextStep={nextStep} handleChange={handleChange} />;
+      return <TInvoice nextStep={nextStep} handleChange={handleChange} />;
+    else return <LInvoice nextStep={nextStep} handleChange={handleChange} />;
   };
 
   //handle field changes

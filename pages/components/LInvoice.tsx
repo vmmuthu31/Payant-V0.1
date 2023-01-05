@@ -1,7 +1,7 @@
 import { BadgeCheckIcon } from "@heroicons/react/outline";
 import React from "react";
 
-const LastStep = () => {
+const LInvoice = () => {
   return <>
   <BadgeCheckIcon className="text-violet-600 mx-auto h-12" />
   <h1 className="text-violet-600 text-center text-xl bold">Invoice Created</h1>
@@ -9,4 +9,4 @@ const LastStep = () => {
   
   </>;
 };
-export default LastStep;
+export default LInvoice;
