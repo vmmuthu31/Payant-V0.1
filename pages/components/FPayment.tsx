@@ -1,6 +1,6 @@
 import { ClockIcon } from "@heroicons/react/outline";
 
-const FirstPayment = (props) => {
+const FirstPayment = () => {
     return (
       <div className="form space-y-3">
 <ClockIcon className="text-violet-600 mx-auto h-12" />

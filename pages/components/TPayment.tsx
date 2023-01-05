@@ -2,7 +2,7 @@ import { DocumentAddIcon } from "@heroicons/react/outline";
 import React from "react";
 
 
-const ThirdPayment = (props) => {
+const ThirdPayment = () => {
   return (
     <div className="form space-y-3">
 <DocumentAddIcon className="text-violet-600 mx-auto h-12" />

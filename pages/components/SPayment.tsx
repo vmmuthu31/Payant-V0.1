@@ -1,7 +1,7 @@
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import React from "react";
 
-const SecondPayment = (props) => {
+const SecondPayment = () => {
   return (
     <div className="form space-y-3">
 <CheckCircleIcon className="text-violet-600 mx-auto h-12" />
