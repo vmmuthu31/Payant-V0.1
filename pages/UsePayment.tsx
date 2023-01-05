@@ -77,6 +77,8 @@ const UserPayment = () => {
           >
             {page === pageTitles.length - 1 
               ? "See Transaction"
+              : "Next" && page === pageTitles.length - 3 
+              ? "Upload"
               : "Next"}
           </button>
               </div>
