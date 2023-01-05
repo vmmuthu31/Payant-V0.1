@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
 
-export default function Form() {
+export default function Clientform() {
   return (
     <>
       <Head>
