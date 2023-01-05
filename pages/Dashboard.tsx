@@ -28,7 +28,7 @@ import DashCard from './DashCard';
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false },
-  { name: 'Deliverables', href: '#', icon: FolderOpenIcon, current: false },
+  { name: 'Deliverables', href: '/Deliverables', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
@@ -121,8 +121,8 @@ const Dashboard = () => {
                   {connectors.map((connector) => (
                     <button
                       disabled={!connector.ready}
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
                       key={connector.id}
-                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet
@@ -195,7 +195,7 @@ const Dashboard = () => {
                     <button
                       disabled={!connector.ready}
                       key={connector.id}
-                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet

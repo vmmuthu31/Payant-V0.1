@@ -29,8 +29,8 @@ import UserForm from './UseForm';
 
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
-  { name: 'Create an invoice', href: '#', icon: PlusCircleIcon, current: true },
-  { name: 'Deliverables', href: '/Deliverables', icon: FolderOpenIcon, current: false },
+  { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false},
+  { name: 'Deliverables', href: '#', icon: FolderOpenIcon, current: true },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
@@ -40,7 +40,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Invoice = () => {
+const Deliverables = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { address, isConnected } = useAccount();
@@ -261,4 +261,4 @@ const Invoice = () => {
   )
 }
 
-export default dynamic (() => Promise.resolve(Invoice), {ssr: false})
+export default dynamic (() => Promise.resolve(Deliverables), {ssr: false})

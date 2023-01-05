@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import FirstStep from "./components/FirstStep";
-import SecondStep from "./components/SecondStep";
-import ThirdStep from "./components/ThirdStep";
-import LastStep from "./components/LastStep";
+import FirstStep from "./components/FInvoice";
+import SecondStep from "./components/SInvoice";
+import ThirdStep from "./components/TInvoice";
+import LastStep from "./components/LInvoice";
 import MultiStepProgressBar from "./components/MultiStepProgressBar";
 import Link from "next/link";
 

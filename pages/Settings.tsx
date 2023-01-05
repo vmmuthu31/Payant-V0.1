@@ -27,7 +27,7 @@ import SetCard from './SetCard';
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
   { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false },
-  { name: 'Deliverables', href: '#', icon: FolderOpenIcon, current: false },
+  { name: 'Deliverables', href: '/Deliverables', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '#', icon: CogIcon, current: true },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
@@ -123,7 +123,7 @@ const Settings = () => {
                     <button
                       disabled={!connector.ready}
                       key={connector.id}
-                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet
@@ -196,7 +196,7 @@ const Settings = () => {
                     <button
                       disabled={!connector.ready}
                       key={connector.id}
-                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800"
+                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet
