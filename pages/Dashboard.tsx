@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import Image from "next/image";
 import logo from "./Assets/logo.png";
 import {
+  AdjustmentsIcon,
   CogIcon,
   CreditCardIcon,
   FolderOpenIcon,
@@ -28,6 +29,7 @@ import DashCard from './DashCard';
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false },
+  { name: 'Manage invoice', href: '#', icon: AdjustmentsIcon, current: false },
   { name: 'Deliverables', href: '/Deliverables', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
