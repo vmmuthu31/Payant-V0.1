@@ -24,9 +24,9 @@ const UserPayment = () => {
   };
 
   const pageTitles = [
-    "Create Invoice",
-    "Add Scope of Work",
-    "Review Details",
+    "",
+    "",
+    "",
     ""
   ];
   const pageSubTitiles = [
@@ -75,10 +75,8 @@ const UserPayment = () => {
               }
             }}
           >
-            {page === pageTitles.length - 2 
-              ? "Create Invoice"
-              : "Next" && page === pageTitles.length - 1 
-              ? "Track Payment"
+            {page === pageTitles.length - 1 
+              ? "See Transaction"
               : "Next"}
           </button>
               </div>

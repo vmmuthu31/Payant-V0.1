@@ -1,24 +1,13 @@
+import { CheckCircleIcon } from "@heroicons/react/outline";
 import React from "react";
 
 const SecondPayment = (props) => {
   return (
-    <div className="form">
-    <input
-      type="text"
-      name="fullname"
-      placeholder="Steve Jobs"
-      className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      onChange={props.handleChange("fullName")}
-    />
-    <input
-      type="text"
-      name="displayName"
-      placeholder="Steve"
-      className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
-     
-      onChange={props.handleChange("displayname")}
-    />
-  </div>
+    <div className="form space-y-3">
+<CheckCircleIcon className="text-violet-600 mx-auto h-12" />
+  <h1 className="text-violet-600 text-center text-xl bold">Payment Received</h1>
+  <p className="text-center "> The deliverables have been successfully reviewed by [client_name]. The funds have been unlocked</p>
+      </div>
   );
 };
 export default SecondPayment;
