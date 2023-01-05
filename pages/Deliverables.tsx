@@ -23,7 +23,7 @@ import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import Login from './Login';
-import Form from './form';
+import Form from './Clientform';
 import UserPayment from './UsePayment';
 
 
