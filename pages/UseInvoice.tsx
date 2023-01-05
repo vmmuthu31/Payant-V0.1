@@ -6,7 +6,7 @@ import LastStep from "./components/LInvoice";
 import MultiStepProgressBar from "./components/MultiStepProgressBar";
 import Link from "next/link";
 
-const UserForm = () => {
+const UseInvoice = () => {
   //For manageing state of multi steps Form
   const [page, setPage] = useState(0);
 
@@ -88,4 +88,4 @@ const UserForm = () => {
     </div>
   );
 };
-export default UserForm;
+export default UseInvoice;
