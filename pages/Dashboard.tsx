@@ -31,7 +31,7 @@ const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
   { name: 'Create an invoice', href: '/Invoice', icon: PlusCircleIcon, current: false },
   { name: 'Manage invoice', href: '#', icon: AdjustmentsIcon, current: false },
-  { name: 'Clients', href: '/Deliverables', icon: FolderOpenIcon, current: false },
+  { name: 'Clients', href: '/Clients', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from "next/image";
 import logo from "./Assets/logo.png";
@@ -18,6 +18,7 @@ import {
   useAccount,
   useConnect,
   useDisconnect,
+  useSignMessage,
   useEnsName,
 } from "wagmi";
 import truncateEthAddress from "truncate-eth-address";
@@ -26,13 +27,13 @@ import Link from 'next/link';
 import Login from './Login';
 import Form from './Clientform';
 import UseInvoice from './UseInvoice';
-
+import { verifyMessage } from 'ethers/lib/utils'
 
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
   { name: 'Create an invoice', href: '#', icon: PlusCircleIcon, current: true },
   { name: 'Manage invoice', href: '#', icon: AdjustmentsIcon, current: false },
-  { name: 'Deliverables', href: '/Deliverables', icon: FolderOpenIcon, current: false },
+  { name: 'Clients', href: '/Clients', icon: FolderOpenIcon, current: false },
   { name: 'Transactions', href: '#', icon: CreditCardIcon, current: false },
   { name: 'Settings', href: '/Settings', icon: CogIcon, current: false },
   { name: 'Refferals', href: '#', icon: ShareIcon, current: false },
@@ -50,7 +51,20 @@ const Invoice = () => {
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
   const { disconnect } = useDisconnect();
+  const recoveredAddress = React.useRef<string>()
+  const { data, signMessage } = useSignMessage({
+    onSuccess(data, variables) {
+      // Verify signature when sign message succeeds
+      const address = verifyMessage(variables.message, data)
+      recoveredAddress.current = address
+    },
+  })
 
+  const handleSign = async (e) => {
+    e.preventDefault()
+    const message = "Payant Signin for Verification"
+    signMessage({ message })
+  }
   return (
     <>
     <Head>

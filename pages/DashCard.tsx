@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  CogIcon,
+  CogIcon, InformationCircleIcon,
 } from '@heroicons/react/outline'
 
 export default function DashCard() {
@@ -24,28 +24,28 @@ export default function DashCard() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     <section className="bg-gray-50">
-  <div className="lg:flex gap-10 items-center justify-center  px-6 py-8 mx-auto  lg:py-0">
+     <section className="font-[Lacto] bg-gray-50">
+  <div className="flex  items-center justify-center  px-6 py-8 mx-auto  lg:py-0">
      
   <div className="w-full  rounded-lg md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8"> 
           <div className="flex gap-14"> 
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+        <div className=" layor-box1">
 
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
-            <p>Total Received</p>
-          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 md:text-2xl ">
+            <p className="flex layor-box1-text1">Total Received <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /></p>
+          <p className="layor-box1-text2 pt-6">
               $32,3k
               </p>
               </div>
           </div>
       </div>
-      <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+      <div className="layor-box1">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
-            <p>Awaiting Payment</p>
-          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 md:text-2xl ">
+            <p className="flex layor-box1-text1"> Awaiting Payment <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /></p>
+          <p className="layor-box1-text2 pt-6">
               $2,055
               </p>
               </div>
@@ -53,21 +53,21 @@ export default function DashCard() {
       </div>
       </div>
       <div className="flex grow gap-14">
-      <div className="w-full   bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+      <div className="layor-box1">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
-            <p>Awaiting Approval</p>
-          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 md:text-2xl ">
+            <p className="flex layor-box1-text1">Awaiting Approval <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /> </p>
+          <p className="layor-box1-text2 pt-6">
           $2,055
               </p>
               </div>
           </div>
       </div>
-      <div className="w-full  bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
+      <div className="layor-box1">
+          <div className="space-y-6  p-8">
           <div>
-            <p>Paid Out</p>
-          <p className="text-xl font-bold  leading-tight tracking-tight text-purple-700 md:text-2xl ">
+            <p className="flex layor-box1-text1">Paid Out &nbsp;<InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /> </p>
+          <p className="layor-box1-text2 pt-6">
           $2,055
               </p>
               </div>
@@ -76,36 +76,36 @@ export default function DashCard() {
       </div> 
           </div>
       </div>
-      <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md md:max-w-2xl xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
+      <div className="layor-box2 ">
+          <div className="space-y-4 md:space-y-4 p-8">
           <div className="flex justify-between">
-          <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
+          <p className="layor-box2-title">
               Recent Invoices
               </p>
-              <Link href="/Invoice"><button className="border-2 pr-6 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-6 border-indigo-600 ">Create Invoice</button></Link>
+              <Link href="/Invoice"><button className="border-2 pr-6 p-1 hover:text-white hover:bg-[#4E00E4] font-[Lacto] rounded-md pl-6 border-[#4E00E4]">Create Invoice</button></Link>
               </div>
-              <div className="flex pt-2 justify-between">
+              <div className="flex p-2 layor-box2-text justify-between">
                     <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
                     <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
-              <div className="flex justify-between">
+              <div className="flex p-2 layor-box2-text justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
                     <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
-              <div className="flex justify-between">
+              <div className="flex p-2 layor-box2-text justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
                     <p>Deadline</p>
                     <p>$2,352.00</p>
               </div>
-              <div className="flex justify-between">
+              <div className="flex p-2 layor-box2-text justify-between">
               <p>#1</p>
                     <p>Client Name</p>
                     <p>Status</p>
@@ -122,7 +122,7 @@ export default function DashCard() {
              <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
                  Transaction History
                  </p>
-                 <button className=" border-2 pr-8 hover:text-white hover:bg-indigo-600 rounded-md pl-8 border-indigo-600">View all</button>
+                 <button className=" border-2 pr-8 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-8 border-[#4E00E4]">View all</button>
                  </div>
                  <div className="flex pt-2 justify-between">
                     <p>#52</p>
@@ -169,7 +169,7 @@ export default function DashCard() {
                  Client(s)
                  </p>
                  <Popup
-    trigger={<button className="border-2 pr-6 p-1 hover:text-white hover:bg-indigo-600 rounded-md pl-6 border-indigo-600 flex">New Client </button>}
+    trigger={<button className="border-2 pr-6 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 border-[#4E00E4] flex">New Client </button>}
     modal>
     {close => (
       <div className="modal">

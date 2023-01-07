@@ -1,0 +1,17 @@
+{
+  "network": "mumbai",
+  "flowFactory": "0x7d1eBbEf12E80a5d4893e388829Cd19B627d630A",
+  "flowContract": "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c",
+  "dispatchDeposit": {
+    "type": "BigNumber",
+    "hex": "0xb74296b26b1956d48e06a5434929f7e5c88ca1650000ffff"
+  },
+  "dispatchWithdraw": {
+    "type": "BigNumber",
+    "hex": "0xd8c91b058ee6efa06ac9f0600e9698bd77a529470000ffff"
+  },
+  "dispatchCancel": {
+    "type": "BigNumber",
+    "hex": "0xaa0e7391865ba06c81e28f86b243d8f3d267f1b90000ffff"
+  }
+}
