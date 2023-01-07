@@ -47,7 +47,7 @@ const Signup = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
      <section >
-     <div className=" px-20 py-8 space-y-5 mx-auto ">
+     <div className=" px-20 py-8 space-y-12 mx-auto ">
   <div className="">
           <Image className="w-40 h-12 " src={logo} alt="logo" />
       </div>

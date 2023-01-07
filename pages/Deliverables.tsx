@@ -107,6 +107,7 @@ const Deliverables = () => {
                   <div className="flex-shrink-0 m-5  items-center px-4">
                   <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
               {isConnected ? (
+                <>
                 <div className="flex gap-x-8">
                   
                   <div>
@@ -120,13 +121,15 @@ const Deliverables = () => {
                     Disconnect
                   </button>
                 </div>
+                <button onClick={handleSign} className="">Sign In</button>
+</>
               ) : (
                 <div>
                   {connectors.map((connector) => (
                     <button
                       disabled={!connector.ready}
-                      key={connector.id}
                       className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
+                      key={connector.id}
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet
@@ -173,15 +176,15 @@ const Deliverables = () => {
         </Transition.Root>
 
         {/* Static sidebar for desktop */}
-        <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
+        <div className="flex w-64 flex-col fixed inset-y-0">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex-1 flex flex-col min-h-0 border-r border-gray-200 bg-white">
+          <div className="flex-1 max-w-[331px] min-w-[219px]: flex flex-col min-h-0 border-r border-gray-200 bg-white">
             <div className="flex-1 flex flex-col pt-5 m-5 pb-4 overflow-y-auto">
               <div className="items-center text-center flex-shrink-0 px-4">
               <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
               {isConnected ? (
+                <>
                 <div className="lg:flex lg:gap-x-8">
-                  
                   <div>
                     {" "}
                     
@@ -193,13 +196,17 @@ const Deliverables = () => {
                     Disconnect
                   </button>
                 </div>
-              ) : (
+                <button onClick={handleSign} className=" p-3 pl-8 pr-8 rounded-md  bg-green-400 mt-5">
+                    Sign in
+                  </button>
+                </>
+                )  : (
                 <div>
                   {connectors.map((connector) => (
                     <button
                       disabled={!connector.ready}
                       key={connector.id}
-                      className=" border-2 pr-8 rounded-md pl-8 border-violet-800 hover:text-white hover:bg-indigo-600"
+                      className="wallet"
                       onClick={() => connect({ connector })}
                     >
                       Connect Wallet
@@ -221,14 +228,14 @@ const Deliverables = () => {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'group flex items-center px-2 py-2 text-sm font-medium rounded-md'
+                      item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-600 tab-items hover:bg-gray-50 hover:text-gray-900',
+                      'group flex items-center px-2 tab-items py-2 text-sm font-medium rounded-md'
                     )}
                   >
                     <item.icon
                       className={classNames(
-                        item.current ? 'text-gray-500' : 'text-gray-400 group-hover:text-gray-500',
-                        'mr-3 flex-shrink-0 h-6 w-6'
+                        item.current ? 'text-gray-500' : 'text-gray-400 tab-items  group-hover:text-gray-500',
+                        'mr-3 tab-items flex-shrink-0 h-6 w-6'
                       )}
                       aria-hidden="true"
                     />
@@ -237,7 +244,6 @@ const Deliverables = () => {
                 ))}
               </nav>
             </div>
-            
           </div>
         </div>
         <div className="md:pl-64 flex flex-col flex-1">
