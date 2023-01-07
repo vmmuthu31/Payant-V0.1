@@ -3,8 +3,41 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
 import dynamic from "next/dynamic";
+import { useState } from "react";
+import axios, * as others from 'axios';
 
 const Signup = () => {
+    const url = "http://localhost:3000/api/v2/user/register"
+    const [data,setData] = useState({
+        email: "",
+        password: "",
+    })
+
+    function submit(e){
+        e.preventDefault();
+        axios.post(url,{
+            email: data.email,
+            password: data.password,
+        })
+        .then(res=>{
+            console.log(res.data)
+            if(res.data.status == true){
+                window.location = "/Verify"
+                console.log("Successfully Registered!")
+                alert("Successfully Registered Please Login")
+            }else{
+                alert("Email id is already registered!")
+                console.log("Email id is already registered!")
+            }
+        })
+    }
+
+    function handle(e){
+        const newdata={...data}
+        newdata[e.target.id] = e.target.value
+        setData(newdata)
+        console.log(newdata)
+    }
   return (
     <>
       <Head>
@@ -18,39 +51,38 @@ const Signup = () => {
             <a href="#" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <Image className="w-full h-12 mr-2" src={logo} alt="logo" />
             </a>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <p className="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
+        <div className="w-full bg-white px-20 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="px-[22px] ">
+              <p className="text-xl font-bold text-center leading-tight pt-[40px] tracking-tight text-[#373737] md:text-[24px] ">
                   Create a free account
               </p>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 pt-[20px] md:space-y-6" onSubmit={(e)=> submit(e)} action="#">
                  <div>
                       
-                      <input type="name" name="name" id="name" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Full Name" required />
+                      <input type="name" name="name" id="name" className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5" placeholder="Full Name" required />
                   </div>
                   <div>
                       
-                      <input type="email" name="email" id="email" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
+                      <input type="email" onChange={(e) => handle(e)} name="email" id="email" value={data.email} className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
                   </div>
                   <div>
                       
-                      <input type="password" name="password" id="password" placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                      <input type="password" onChange={(e) => handle(e)} name="password" id="password" value={data.password} placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                   </div>
                   <div>
                       
                       <input type="password" name="password" id="password" placeholder="Confirm Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                   </div>
-                  <div className="flex items-center justify-between">
-                      <div className="flex items-start">
-                          
-                      </div>
-                      <Link href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</Link>
+                  <div className="flex items-center">
+                      <input className="mr-1" type="radio" /><p className="text-[11px]">By creating an account. I agree to Payant terms of services and privacy quickly</p>
                   </div>
-               <Link href="/Login"><button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign Up</button></Link>
-                  <p className="text-sm text-center  text-black ">
-                      Already a User? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-blue-500"><Link href="/Login"> Login</Link></a>
+               <button type="submit" className="w-full mt-4 text-[#4E00E4]  hover:bg-primary-700 focus:ring-4  focus:ring-primary-300 font-medium border-[#4E00E4] border-2 rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-[#4E00E4] dark:hover:text-[#F4F4F4]">Sign Up</button>
+                  <p className="text-sm text-center pb-[20px] text-black ">
+                      Already a user? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-[#4E00E4]"><Link href="/Login"> Login</Link></a>
                   </p>
               </form>
+
+              
           </div>
       </div>
   </div>

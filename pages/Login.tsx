@@ -2,8 +2,40 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "./Assets/logo.png";
+import { useState } from "react";
+import axios, * as others from 'axios';
 
 export default function Login() {
+    const url = "http://localhost:3000/api/v2/user/login"
+    const [data,setData] = useState({
+        email: "",
+        password: "",
+    })
+
+    function submit(e){
+        e.preventDefault();
+        axios.post(url,{
+            email: data.email,
+            password: data.password,
+        })
+        .then(res=>{
+            console.log(res.data)
+            if(res.data.status == true){
+                window.location = "/Dashboard"
+                console.log("Successfully logged in")
+                alert("Successfully Logged in")
+            }else{
+                alert("Email id is not registered!/Check your password")
+                console.log("Email id is not registered!/Check your password")
+            }
+        })
+    }
+    function handle(e){
+        const newdata={...data}
+        newdata[e.target.id] = e.target.value
+        setData(newdata)
+        console.log(newdata)
+    }
   return (
     <>
       <Head>
@@ -19,26 +51,26 @@ export default function Login() {
           <Image className="w-full h-12 mr-2" src={logo} alt="logo" />
 
       </div>
-      <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
-          <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <p className="text-xl font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
+      <div className="w-full bg-white px-20 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div className="px-[22px] ">
+              <p className="text-xl font-bold text-center leading-tight pt-[40px] tracking-tight text-[#373737] md:text-[24px] ">
                   Login
               </p>
-              <form className="space-y-4 md:space-y-6" action="#">
-                  <div>
+              <form className="pt-[20px] md:space-y-[10px]" onSubmit={(e)=> submit(e)} action="#">
+              <div>
                       
-                      <input type="email" name="email" id="email" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
+                      <input type="email" onChange={(e) => handle(e)} name="email" id="email" value={data.email} className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email Address" required />
                   </div>
                   <div>
                       
-                      <input type="password" name="password" id="password" placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                      <input type="password" onChange={(e) => handle(e)} name="password" id="password" value={data.password} placeholder="Password" className=" border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
                   </div>
                   <div className="flex flex-row-reverse  items-center justify-between">
-                      <Link href="/Verify" className="text-sm font-medium text-primary-600 hover:underline dark:text-blue-500">Forgot password?</Link>
+                      <Link href="/Verify" className="text-sm font-medium text-primary-600 hover:underline pb-[5px] dark:text-[#4E00E4]">Forgot password?</Link>
                   </div>
-              <Link href="/Dashboard">    <button type="submit" className="w-full mt-4 text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button></Link>
-                  <p className="text-sm text-center  text-black ">
-                      Not a user yet? <Link href="/Signup" className="font-medium text-primary-600 hover:underline dark:text-blue-500">Sign up</Link>
+             <button type="submit" className="w-full mt-4 text-[#4E00E4]  hover:bg-primary-700 focus:ring-4  focus:ring-primary-300 font-medium border-[#4E00E4] border-2 rounded-lg text-sm px-5 py-2.5 text-center  dark:hover:bg-[#4E00E4] dark:hover:text-[#F4F4F4]">Sign in</button>
+                  <p className="text-sm text-center pb-[20px] text-black ">
+                  Not a user yet?  <Link href="/Signup" className="font-medium text-primary-600 hover:underline dark:text-[#4E00E4]">Sign up</Link>
                   </p>
               </form>
           </div>

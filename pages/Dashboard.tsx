@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from "next/image";
 import logo from "./Assets/logo.png";
@@ -18,13 +18,14 @@ import {
   useAccount,
   useConnect,
   useDisconnect,
+  useSignMessage,
   useEnsName,
 } from "wagmi";
 import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import DashCard from './DashCard';
-
+import { verifyMessage } from 'ethers/lib/utils'
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -48,6 +49,21 @@ const Dashboard = () => {
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
   const { disconnect } = useDisconnect();
+  const recoveredAddress = React.useRef<string>()
+  const { data, signMessage } = useSignMessage({
+    onSuccess(data, variables) {
+      // Verify signature when sign message succeeds
+      const address = verifyMessage(variables.message, data)
+      recoveredAddress.current = address
+    },
+  })
+
+  const handleSign = async (e) => {
+    e.preventDefault()
+    const message = "Payant Signin for Verification"
+    signMessage({ message })
+  }
+
 
   return (
     <>
@@ -105,6 +121,7 @@ const Dashboard = () => {
                   <div className="flex-shrink-0 m-5  items-center px-4">
                   <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
               {isConnected ? (
+                <>
                 <div className="flex gap-x-8">
                   
                   <div>
@@ -118,6 +135,8 @@ const Dashboard = () => {
                     Disconnect
                   </button>
                 </div>
+                <button onClick={handleSign} className="">Sign In</button>
+</>
               ) : (
                 <div>
                   {connectors.map((connector) => (
@@ -178,8 +197,8 @@ const Dashboard = () => {
               <div className="items-center text-center flex-shrink-0 px-4">
               <Image className="w-full h-12  mb-5" src={logo} alt="logo" />
               {isConnected ? (
+                <>
                 <div className="lg:flex lg:gap-x-8">
-                  
                   <div>
                     {" "}
                     
@@ -191,7 +210,11 @@ const Dashboard = () => {
                     Disconnect
                   </button>
                 </div>
-              ) : (
+                <button onClick={handleSign} className=" p-3 pl-8 pr-8 rounded-md  bg-green-400 mt-5">
+                    Sign in
+                  </button>
+                </>
+                )  : (
                 <div>
                   {connectors.map((connector) => (
                     <button

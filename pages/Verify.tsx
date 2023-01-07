@@ -27,14 +27,14 @@ export default function Verify() {
               <form className="space-y-4 md:space-y-6" action="#">
                   <div>
                   <h1 className=" text-center items-center mb-2 text-lg text-gray-900"> Check your mail</h1>
-                      <h1 className=" text-center items-center mb-6 text-xl font-semibold text-gray-900"> We sent a Verification link to <span className="cursor-pointer text-violet-800">user@email.com</span></h1>
+                      <h1 className=" text-center items-center mb-6 text-xl font-semibold text-gray-900"> We sent a Verification link to <span className="cursor-pointer text-[#4E00E4]">user@email.com</span></h1>
                   </div>
                   <div className="text-center">
                      Follow the instructions in the email to confirm and activate your account.
                     
                       </div>
                   <div className="text-center">
-                  Dont receive an email? <span className="text-violet-800 bold cursor-pointer">Send Again</span> 
+                  Dont receive an email? <span className="text-[#4E00E4] bold cursor-pointer">Send Again</span> 
                   </div>     
               </form>
           </div>
