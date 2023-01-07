@@ -115,3 +115,17 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.bg-img{
+  background-image: url(../pages/Assets/bg.png) ;
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-size: 65%;
+}
+
+.bg-img1{
+  background-image: url(../pages/Assets/bg-1.png);
+  background-repeat: no-repeat;
+  background-position: center; /* Center the image */
+  background-size: 65%;
+}
