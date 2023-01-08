@@ -201,7 +201,7 @@ export default function DashCard() {
                  Client(s)
                  </p>
                  <Popup
-    trigger={<button className="border-2 pr-2 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 text-[#4E00E4] border-[#4E00E4] flex">New Client <PlusCircleIcon className="m-1.5 plus-icon" /> </button>}
+    trigger={<button className="border-2 pr-2 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 text-[#4E00E4] border-[#4E00E4] flex">New Client <PlusCircleIcon className="m-1.5 plus-icon " /> </button>}
     modal>
     {close => (
       <div className="modal">
