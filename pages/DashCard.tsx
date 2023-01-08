@@ -25,7 +25,7 @@ export default function DashCard() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
      <section className="font-[Lacto] bg-gray-50">
-  <div className="flex  items-center justify-center  px-6 py-8 mx-auto  lg:py-0">
+  <div className="flex  items-center justify-center  px-6 mx-auto  ">
      
   <div className="w-full  rounded-lg md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8"> 
@@ -77,85 +77,116 @@ export default function DashCard() {
           </div>
       </div>
       <div className="layor-box2 ">
-          <div className="space-y-4 md:space-y-4 p-8">
+          <div className="space-y-5 p-8">
           <div className="flex justify-between">
+            
           <p className="layor-box2-title">
               Recent Invoices
               </p>
               <Link href="/Invoice"><button className="border-2 pr-6 p-1 hover:text-white hover:bg-[#4E00E4] font-[Lacto] rounded-md pl-6 border-[#4E00E4]">Create Invoice</button></Link>
               </div>
-              <div className="flex p-2 layor-box2-text justify-between">
-                    <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>Deadline</p>
-                    <p>$2,352.00</p>
+              <div className=" text-[14px]  justify-between">
+              <table>
+  <tr className="layor-box2-text">
+  <th>Invoice</th>
+                    <th>Client Name</th>
+                    <th>Status</th>
+                    <th className="text-[#a882f3] underline"> -</th>
+                    <th className="text-[#8B8B8B]">Deadline</th>
+                    <th >Invoice Amount</th>
+  </tr>
+  <tr className="p-2 layor-box2-text ">
+  <td>#1</td>
+                    <td>Client Name</td>
+                    <td>Status</td>
+                    <td className="text-[#a882f3] underline"> Deliverables</td>
+                    <td className="text-[#8B8B8B]">Deadline</td>
+                    <td>$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box2-text ">
+  <td>#1</td>
+                    <td>Client Name</td>
+                    <td>Status</td>
+                    <td className="text-[#a882f3] underline"> Deliverables</td>
+                    <td className="text-[#8B8B8B]">Deadline</td>
+                    <td>$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box2-text ">
+  <td>#1</td>
+                    <td>Client Name</td>
+                    <td>Status</td>
+                    <td className="text-[#a882f3] underline"> Deliverables</td>
+                    <td className="text-[#8B8B8B]">Deadline</td>
+                    <td>$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box2-text ">
+  <td>#1</td>
+                    <td>Client Name</td>
+                    <td>Status</td>
+                    <td className="text-[#a882f3] underline"> Deliverables</td>
+                    <td className="text-[#8B8B8B]">Deadline</td>
+                    <td>$2,352.00</td>
+  </tr>
+</table>
               </div>
-              <div className="flex p-2 layor-box2-text justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>Deadline</p>
-                    <p>$2,352.00</p>
-              </div>
-              <div className="flex p-2 layor-box2-text justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>Deadline</p>
-                    <p>$2,352.00</p>
-              </div>
-              <div className="flex p-2 layor-box2-text justify-between">
-              <p>#1</p>
-                    <p>Client Name</p>
-                    <p>Status</p>
-                    <p>Deadline</p>
-                    <p>$2,352.00</p>
-              </div> 
               </div>
       </div>
   </div>
-  <div className="lg:flex gap-8 items-center justify-center  px-6 py-8 mx-auto  lg:py-0 ">
-  <div className="w-full mt-5 bg-white  rounded-lg shadow dark:border md:mt-0 sm:max-w-md lg:max-w-3xl xl:p-0">
+  <div className="flex items-center justify-center mx-auto  ">
+  <div className="layor-box3 ">
           <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
           <div className="flex justify-between">
-             <p className="text-xl font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
+             <p className="layor-box3-title">
                  Transaction History
                  </p>
                  <button className=" border-2 pr-8 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-8 border-[#4E00E4]">View all</button>
                  </div>
-                 <div className="flex pt-2 justify-between">
-                    <p>#52</p>
-                    <p>Deposit</p>
-                    <p>From</p>
-                    <p>To</p>
-                    <p>Date</p>
-                    <p>Amount</p>
-              </div>
-              <div className="flex justify-between">
-              <p>#52</p>
-                    <p>Deposit</p>
-                    <p>From</p>
-                    <p>To</p>
-                    <p>Date</p>
-                    <p>Amount</p>
-              </div>
-              <div className="flex justify-between">
-              <p>#52</p>
-                    <p>Deposit</p>
-                    <p>From</p>
-                    <p>To</p>
-                    <p>Date</p>
-                    <p>Amount</p>
-              </div>
-              <div className="flex justify-between">
-              <p>#52</p>
-                    <p>Deposit</p>
-                    <p>From</p>
-                    <p>To</p>
-                    <p>Date</p>
-                    <p>Amount</p>
-              </div>           
+                 <div className=" text-[14px]  justify-between">
+              <table>
+  <tr className="p-2 layor-box3-text layor-box3-row">
+  <td>#52</td>
+                    <td>Deposit</td>
+                    <td className="text-[#8B8B8B]">0x126556556</td>
+                    <td className="text-[#8B8B8B]"> 0x464846648</td>
+                    <td className="text-[#8B8B8B]">Dec 18th 2022</td>
+                    <td className="text-[#05C705]">+$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box3-text layor-box3-row">
+  <td>#52</td>
+                    <td>Deposit</td>
+                    <td className="text-[#8B8B8B]">0x126556556</td>
+                    <td className="text-[#8B8B8B]"> 0x464846648</td>
+                    <td className="text-[#8B8B8B]">Dec 18th 2022</td>
+                    <td className="text-[#05C705]">+$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box3-text layor-box3-row ">
+  <td>#52</td>
+                    <td>Deposit</td>
+                    <td className="text-[#8B8B8B]">0x126556556</td>
+                    <td className="text-[#8B8B8B]"> 0x464846648</td>
+                    <td className="text-[#8B8B8B]">Dec 18th 2022</td>
+                    <td className="text-[#4E00E4]">-$2.45</td>
+  </tr>
+  <tr className="p-2 layor-box3-text layor-box3-row">
+  <td>#52</td>
+                    <td>Deposit</td>
+                    <td className="text-[#8B8B8B]">0x126556556</td>
+                    <td className="text-[#8B8B8B]"> 0x464846648</td>
+                    <td className="text-[#8B8B8B]">Dec 18th 2022</td>
+                    <td className="text-[#05C705]">+$2,352.00</td>
+  </tr>
+  <tr className="p-2 layor-box3-text layor-box3-row">
+  <td>#52</td>
+                    <td>Deposit</td>
+                    <td className="text-[#8B8B8B]">0x126556556</td>
+                    <td className="text-[#8B8B8B]"> 0x464846648</td>
+                    <td className="text-[#8B8B8B]">Dec 18th 2022</td>
+                    <td className="text-[#05C705]">+$2,352.00</td>
+  </tr>
+  
+  
+</table>
+              </div>         
              </div>
          </div>
      <div className="w-full  rounded-lg md:mt-0 sm:max-w-md lg:max-w-lg xl:p-0">
