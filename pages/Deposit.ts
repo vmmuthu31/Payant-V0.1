@@ -9,7 +9,7 @@ import {
 import { assertError, basicDeploy, ONE } from "./contracts/Flow.json";
 import { flowFactoryDeploy } from "./contracts/Flow.json";
 import { assert } from "chai";
-import { deployFlow } from "./utils";
+import { deployFlow } from "./contracts/Flow.json";
 
 describe("Payant Deposit test", () => {
   let flowFactory: FlowFactory;

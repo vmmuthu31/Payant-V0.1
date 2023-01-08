@@ -22,7 +22,7 @@ export default function Verify() {
       <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4   md:space-y-2 sm:p-8">
             
-              <MailIcon className="h-12 w-12 mx-auto text-green-600 " aria-false="true" />
+              <MailIcon className="h-12 w-12 mx-auto text-green-600 " />
             
               <form className="space-y-4 md:space-y-6" action="#">
                   <div>
