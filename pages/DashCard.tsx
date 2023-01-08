@@ -7,7 +7,7 @@ import Popup from 'reactjs-popup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
-  CogIcon, InformationCircleIcon,
+  CogIcon, InformationCircleIcon, PlusCircleIcon,
 } from '@heroicons/react/outline'
 
 export default function DashCard() {
@@ -35,7 +35,7 @@ export default function DashCard() {
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
             <p className="flex layor-box1-text1">Total Received <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /></p>
-          <p className="layor-box1-text2 pt-6">
+          <p className="layor-box1-text2 ">
               $32,3k
               </p>
               </div>
@@ -45,7 +45,7 @@ export default function DashCard() {
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
             <p className="flex layor-box1-text1"> Awaiting Payment <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /></p>
-          <p className="layor-box1-text2 pt-6">
+          <p className="layor-box1-text2 ">
               $2,055
               </p>
               </div>
@@ -57,7 +57,7 @@ export default function DashCard() {
           <div className="p-6 space-y-4 md:space-y-4 sm:p-8">
           <div>
             <p className="flex layor-box1-text1">Awaiting Approval <InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /> </p>
-          <p className="layor-box1-text2 pt-6">
+          <p className="layor-box1-text2 ">
           $2,055
               </p>
               </div>
@@ -67,7 +67,7 @@ export default function DashCard() {
           <div className="space-y-6  p-8">
           <div>
             <p className="flex layor-box1-text1">Paid Out &nbsp;<InformationCircleIcon  className="w-[9px] h-[9px]  text-[#4E00E4]" /> </p>
-          <p className="layor-box1-text2 pt-6">
+          <p className="layor-box1-text2">
           $2,055
               </p>
               </div>
@@ -77,17 +77,17 @@ export default function DashCard() {
           </div>
       </div>
       <div className="layor-box2 ">
-          <div className="space-y-5 p-8">
-          <div className="flex justify-between">
+          <div className=" ">
+          <div className="flex justify-between p-7">
             
           <p className="layor-box2-title">
               Recent Invoices
               </p>
-              <Link href="/Invoice"><button className="border-2 pr-6 p-1 hover:text-white hover:bg-[#4E00E4] font-[Lacto] rounded-md pl-6 border-[#4E00E4]">Create Invoice</button></Link>
+              <Link href="/Invoice"><button className="border-2 pr-6 p-1 text-[#4E00E4] hover:text-white hover:bg-[#4E00E4] font-[Lacto] rounded-md pl-6 border-[#4E00E4] flex">Create Invoice <PlusCircleIcon className="m-1.5 plus-icon" /> </button></Link>
               </div>
-              <div className=" text-[14px]  justify-between">
-              <table>
-  <tr className="layor-box2-text">
+              <div className="mx-5 text-[14px]  justify-between">
+              <table className="table2">
+  <tr className="layor-box3-row layor-box3-text">
   <th>Invoice</th>
                     <th>Client Name</th>
                     <th>Status</th>
@@ -132,17 +132,18 @@ export default function DashCard() {
               </div>
       </div>
   </div>
-  <div className="flex items-center justify-center mx-auto  ">
+  <div className="flex mx-auto px-5 gap-[33px] justify-center items-center  ">
+    
   <div className="layor-box3 ">
-          <div className="p-6 space-y-4 md:space-y-4  sm:p-8">
+          <div className="p-6 space-y-4 md:space-y-4  ">
           <div className="flex justify-between">
              <p className="layor-box3-title">
                  Transaction History
                  </p>
-                 <button className=" border-2 pr-8 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-8 border-[#4E00E4]">View all</button>
+                 <button className=" border-2 pr-8 hover:text-white text-[#4E00E4] hover:bg-[#4E00E4]  rounded-md pl-8 border-[#4E00E4]">View all</button>
                  </div>
                  <div className=" text-[14px]  justify-between">
-              <table>
+              <table className="table">
   <tr className="p-2 layor-box3-text layor-box3-row">
   <td>#52</td>
                     <td>Deposit</td>
@@ -189,18 +190,18 @@ export default function DashCard() {
               </div>         
              </div>
          </div>
-     <div className="w-full  rounded-lg md:mt-0 sm:max-w-md lg:max-w-lg xl:p-0">
-             <div className="p-6 space-y-4 md:space-y-4 sm:p-8"> 
+     <div className="w-full rounded-lg md:mt-0  sm:max-w-lg lg:max-w-lg xl:p-0">
+             <div className=" space-y-4 md:space-y-4 "> 
              <div className="flex gap-14"> 
-           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md lg:max-w-lg xl:p-0">
+           <div className="layor-box4">
    
              <div className="p-6  space-y-4 md:space-y-4 sm:p-8">
              <div className="flex justify-between">
-             <p className="text-xl  font-bold  leading-tight tracking-tight text-gray-900 md:text-2xl ">
+             <p className="layor-box2-title py-2">
                  Client(s)
                  </p>
                  <Popup
-    trigger={<button className="border-2 pr-6 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 border-[#4E00E4] flex">New Client </button>}
+    trigger={<button className="border-2 pr-2 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 text-[#4E00E4] border-[#4E00E4] flex">New Client <PlusCircleIcon className="m-1.5 plus-icon" /> </button>}
     modal>
     {close => (
       <div className="modal">
@@ -211,7 +212,7 @@ export default function DashCard() {
         <div className="">
           <div className="p-6 space-y-2 ">
               <p className="text-lg font-bold text-center leading-tight tracking-tight text-gray-900 md:text-2xl ">
-                  Add Client
+                  Add Client 
               </p>
               <form className="space-y-4 md:space-y-4" >
                  <div>
@@ -253,24 +254,36 @@ export default function DashCard() {
                  </div>
                  
                  
-                 <div className="flex justify-between">
-                    <p>Client Name</p>
-                    <p>Awaiting Period</p>
-                    <p>Total Paid Out</p>
-              </div> 
-              <div className="flex justify-between">
-                    <p>Payant</p>
-                    <p>$2,120.00</p>
-                    <p className="text-green-500">$3,325.00</p>
-              </div>               <div className="flex justify-between">
-              <p>Payant</p>
-                    <p>$2,120.00</p>
-                    <p className="text-green-500">$3,325.00</p>
-              </div> 
-              <div className="flex justify-between">
-              <p>Payant</p>
-                    <p>$2,120.00</p>
-                    <p className="text-green-500">$3,325.00</p>
+                 <div className="justify-between">
+                 <table className="table3">
+                 <tr className="layor-box4-th-text">
+                    <th className="layor-box4-th-text">Clients Name</th>
+                    <th className="layor-box4-th-text">Awaiting Payment</th>
+                    <th className="layor-box4-th-text">Total Paid Out</th>   
+                 </tr>
+                <tr className=" layor-box4-tr">
+                    <td>Payant</td>
+                    <td>$2,120.00</td>
+                    <td className="text-[#05C705]">$3,352.00</td>
+                </tr>
+                <tr className=" layor-box4-tr">
+                    <td>Payant</td>
+                    <td>$2,120.00</td>
+                    <td className="text-[#05C705]">$3,352.00</td>
+                </tr>
+                <tr className="p-2 layor-box4-tr">
+                    <td>Payant</td>
+                    <td>$2,120.00</td>
+                    <td className="text-[#05C705]">$3,352.00</td>
+                </tr>
+                <tr className="p-2 layor-box4-tr">
+                    <td>Payant</td>
+                    <td>$2,120.00</td>
+                    <td className="text-[#05C705]">$3,352.00</td>
+                </tr>
+                
+                
+  </table>
               </div> 
              </div>
          </div>
