@@ -378,3 +378,7 @@ height: 13px;
 color: #4E00E4;
 opacity: 1;
 }
+
+.plus-icon:hover{
+  color:white;
+}
