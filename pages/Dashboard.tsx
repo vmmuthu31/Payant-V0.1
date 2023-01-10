@@ -26,6 +26,7 @@ import dynamic from "next/dynamic";
 import Link from 'next/link';
 import DashCard from './DashCard';
 import { verifyMessage } from 'ethers/lib/utils'
+import Signup from './Signup';
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -48,6 +49,7 @@ const Dashboard = () => {
   const { data: ensName } = useEnsName({ address });
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
+    
   const { disconnect } = useDisconnect();
   const recoveredAddress = React.useRef<string>()
   const { data, signMessage } = useSignMessage({
@@ -274,6 +276,7 @@ const Dashboard = () => {
           <main >
             <div >
              <DashCard />
+             <Signup />
             </div>
           </main>
         </div>

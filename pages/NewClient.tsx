@@ -24,10 +24,10 @@ import truncateEthAddress from "truncate-eth-address";
 import dynamic from "next/dynamic";
 import Link from 'next/link';
 import Login from './Login';
-import Form from './Clientform';
+import Form from './Depositform';
 import UserPayment from './UsePayment';
 import Invoice from './Invoice';
-import Clientform from './Clientform';
+import Clientform from './Depositform';
 
 
 const navigation = [
