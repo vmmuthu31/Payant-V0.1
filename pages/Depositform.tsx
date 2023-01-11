@@ -1,26 +1,28 @@
 import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios, * as others from "axios";
-import { arrayify, solidityKeccak256 } from "ethers/lib/utils";
+import { arrayify, Bytes, solidityKeccak256 } from "ethers/lib/utils";
 import {
-  useGlobalState,
   setGlobalState,
-  setLoadingMsg,
   setAlert,
 } from "../store";
-import { useSignMessage } from "wagmi";
+import {  useAccount, useSignMessage } from "wagmi";
 import { create } from "ipfs-http-client";
-import { deposit, isWallectConnected } from "./Blockchain.Services";
+import { deposit } from "./Blockchain.Services";
 import { FileUploader } from "react-drag-drop-files";
 import { verifyMessage } from "ethers/lib/utils";
+import BigNumber from 'bignumber.js';
+
+
 
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
   const [fileHash, setFileHash] = useState("");
   const [dispatchDeposit, setDispatchDeposit] = useState("");
   const [signedContext, setSignedContext] = useState("");
+  const { address} = useAccount();
   const [imgBase64, setImgBase64] = useState(null);
   const [file, setFile] = useState(null);
 
@@ -41,6 +43,12 @@ const Depositform = () => {
     setImgBase64(null);
   };
 
+  type SignedContextStruct = {
+    signer: string;
+    signature: Bytes;
+    context: BigNumber[];
+  };
+  
   const changeImage = async (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
@@ -90,23 +98,34 @@ const Depositform = () => {
       );
       // ** Completed Uploading to the Pinata and Got the Hash Value
 
-      const fileHash = res.data.IpfsHash;
-      console.log(fileHash);
+      // const fileHash = res.data.IpfsHash;
+      const fileHash = 1
+      console.log(res.data.IpfsHash);
+      const ONE = 1;
       const context = [
         "1",
         "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1",
         "0xfE27A2142B09e666644Be3B250307cEA569D7Faa",
-        "1",
-        "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1",
+        ONE,
+        "0xD6802016dca8a32C0087B20bfb3726bDfCd71463",
         "20",
       ];
-      const depositor = "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1";
+      console.log(address)
+      const signer = (address);
+      // const depositor = "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1";
       const contextHash = solidityKeccak256(["uint256[]"], [context]);
       const message = arrayify(contextHash);
       const signature = signMessage({ message });
+      
       console.log(message);
-      const signedContext = [message, depositor, context];
-
+      const signedContext: SignedContextStruct[] = [
+        {
+          signer: signer,
+          signature: signature,
+          context: context,
+        },
+      ];
+      
       // const metadataURI = `https://ipfs.io/ipfs/${created}`;
       const flow = await deposit({ dispatchDeposit, fileHash, signedContext });
       // setFileHash(metadataURI);
