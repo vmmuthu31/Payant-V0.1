@@ -3,15 +3,18 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useState, useEffect } from "react";
 import axios, * as others from "axios";
+import { arrayify, solidityKeccak256 } from "ethers/lib/utils";
 import {
   useGlobalState,
   setGlobalState,
   setLoadingMsg,
   setAlert,
 } from "../store";
+import { useSignMessage } from "wagmi";
 import { create } from "ipfs-http-client";
 import { deposit, isWallectConnected } from "./Blockchain.Services";
 import { FileUploader } from "react-drag-drop-files";
+import { verifyMessage } from "ethers/lib/utils";
 
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
@@ -20,6 +23,14 @@ const Depositform = () => {
   const [signedContext, setSignedContext] = useState("");
   const [imgBase64, setImgBase64] = useState(null);
   const [file, setFile] = useState(null);
+
+  const { data, signMessage } = useSignMessage({
+    onSuccess(data, variables) {
+      // Verify signature when sign message succeeds
+      const address = verifyMessage(variables.message, data);
+      const recoveredAddress = address;
+    },
+  });
   const handleChange = (file) => {
     setFile(file);
   };
@@ -44,7 +55,7 @@ const Depositform = () => {
   const handleSubmission = async (e) => {
     // console.log("Deposit submission");
     e.preventDefault();
-    if (!fileHash || !dispatchDeposit || !signedContext) return;
+    if (!fileHash || !dispatchDeposit) return;
 
     setGlobalState("modal", "scale-0");
     setGlobalState("loading", { show: true, msg: "Uploading data..." });
@@ -81,6 +92,21 @@ const Depositform = () => {
 
       const fileHash = res.data.IpfsHash;
       console.log(fileHash);
+      const context = [
+        "1",
+        "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1",
+        "0xfE27A2142B09e666644Be3B250307cEA569D7Faa",
+        "1",
+        "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1",
+        "20",
+      ];
+      const depositor = "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1";
+      const contextHash = solidityKeccak256(["uint256[]"], [context]);
+      const message = arrayify(contextHash);
+      const signature = signMessage({ message });
+      console.log(message);
+      const signedContext = [message, depositor, context];
+
       // const metadataURI = `https://ipfs.io/ipfs/${created}`;
       const flow = await deposit({ dispatchDeposit, fileHash, signedContext });
       // setFileHash(metadataURI);
@@ -132,30 +158,19 @@ const Depositform = () => {
                     className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5"
                     type="text"
                     name="title"
-                    placeholder="Depositor"
+                    placeholder="Dispatch Deposit"
                     onChange={(e) => setDispatchDeposit(e.target.value)}
                     value={dispatchDeposit}
                     required
                   />
                 </div>
-
-                <div className="">
-                  <input
-                    className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5"
-                    type="number"
-                    name="price"
-                    placeholder="Price (Eth)"
-                    required
-                  />
-                </div>
-
                 <div className="">
                   <textarea
                     className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5"
                     name="description"
-                    placeholder="Withdrawer Address"
-                    onChange={(e) => setSignedContext(e.target.value)}
-                    value={signedContext}
+                    placeholder="Signed Context"
+                    // onChange={(e) => setSignedContext(e.target.value)}
+                    // value={signedContext}
                     required
                   ></textarea>
                 </div>

@@ -142,7 +142,7 @@ const Invoice = () => {
                     Disconnect
                   </button>
                 </div>
-                <button onClick={handleSign} className="">Sign In</button>
+                {/* <button onClick={handleSign} className="">Sign In</button> */}
 </>
               ) : (
                 <div>
@@ -217,9 +217,9 @@ const Invoice = () => {
                     Disconnect
                   </button>
                 </div>
-                <button onClick={handleSign} className=" p-3 pl-8 pr-8 rounded-md  bg-green-400 mt-5">
+                {/* <button onClick={handleSign} className=" p-3 pl-8 pr-8 rounded-md  bg-green-400 mt-5">
                     Sign in
-                  </button>
+                  </button> */}
                 </>
                 )  : (
                 <div>
