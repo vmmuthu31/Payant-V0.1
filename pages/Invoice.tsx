@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import Image from "next/image";
 import logo from "./Assets/logo.png";
@@ -28,7 +28,9 @@ import Login from './Login';
 import Form from './Depositform';
 import UseInvoice from './UseInvoice';
 import { verifyMessage } from 'ethers/lib/utils'
-import Depositform from './Depositform';
+import Depositform  from './Depositform';
+
+
 const DynamicComponentWithNoSSR = dynamic(
   () => import('./Depositform'),
   { ssr: false }
@@ -63,6 +65,7 @@ const Invoice = () => {
       recoveredAddress.current = address
     },
   })
+
 
   const handleSign = async (e) => {
     e.preventDefault()
@@ -276,8 +279,7 @@ const Invoice = () => {
             </button>
           </div>
           <main >
-                <div className='  py-36'>
-                  
+                <div>
                   <DynamicComponentWithNoSSR />
                 </div>
           </main>

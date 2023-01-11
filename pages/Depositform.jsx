@@ -11,6 +11,7 @@ import {
 } from "../store";
 import { create } from "ipfs-http-client";
 import { deposit, isWallectConnected } from "./Blockchain.Services";
+import { FileUploader } from "react-drag-drop-files";
 
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
@@ -18,18 +19,17 @@ const Depositform = () => {
   const [dispatchDeposit, setDispatchDeposit] = useState("");
   const [signedContext, setSignedContext] = useState("");
   const [imgBase64, setImgBase64] = useState(null);
+  const [file, setFile] = useState(null);
+  const handleChange = (file) => {
+    setFile(file);
+  };
   const resetForm = () => {
     setFileHash("");
     setDispatchDeposit("");
     setSignedContext("");
     setImgBase64(null);
   };
-  useEffect(async () => {
-    await isWallectConnected();
-    return () => {
-      console.log("This will be logged on unmount");
-    };
-  }, []);
+
   const changeImage = async (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
@@ -106,7 +106,7 @@ const Depositform = () => {
                 Add Client
               </p>
               <div className="space-y-4 md:space-y-6">
-                <div className="shrink-0 rounded-xl overflow-hidden h-20 w-20">
+                <div className="shrink-0 rounded-xl mx-auto overflow-hidden h-20 w-20">
                   <img
                     alt=""
                     className="h-full w-full object-cover cursor-pointer"
