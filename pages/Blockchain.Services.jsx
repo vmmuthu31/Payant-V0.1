@@ -1,11 +1,20 @@
 import Web3 from "web3";
 import { setGlobalState, getGlobalState, setAlert } from "../store/index";
-import abi from "../pages/contracts/Flow.json";
 import mumbai from "../pages/contracts/mumbai.json";
+import contract from "../pages/contracts/Flow.json";
+import { ethers } from "ethers";
 
 const { ethereum } = window;
-window.web3 = new Web3(ethereum);
-window.web3 = new Web3(window.web3.currentProvider);
+if (ethereum) {
+  window.web3 = new Web3(ethereum);
+  window.web3 = new Web3(window.web3.currentProvider);
+}
+
+//Contract
+const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+const ethContract = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
 
 const getEtheriumContract = async () => {
   const connectedAccount = getGlobalState("connectedAccount");
@@ -13,27 +22,21 @@ const getEtheriumContract = async () => {
   if (connectedAccount) {
     const web3 = window.web3;
     const networkId = await web3.eth.net.getId();
-    const networkData = mumbai.networks[networkId];
+    const Contract_Address = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
+    const contract = new web3.eth.Contract(contract.abi, Contract_Address);
 
-    if (networkData) {
-      const contract = new web3.eth.Contract(
-        mumbai.flowContract,
-        networkData.address
-      );
-      return contract;
-    } else {
-      return null;
-    }
+    return contract;
   } else {
     return getGlobalState("contract");
   }
 };
-
 const connectWallet = async () => {
   try {
     if (!ethereum) return alert("Please install Metamask");
-    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    setGlobalState("connectedAccount", accounts[0].toLowerCase());
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    setGlobalState("connectedAccount", accounts[0]);
   } catch (error) {
     reportError(error);
   }
@@ -49,12 +52,12 @@ const isWallectConnected = async () => {
     });
 
     window.ethereum.on("accountsChanged", async () => {
-      setGlobalState("connectedAccount", accounts[0].toLowerCase());
+      setGlobalState("connectedAccount", accounts[0]);
       await isWallectConnected();
     });
 
     if (accounts.length) {
-      setGlobalState("connectedAccount", accounts[0].toLowerCase());
+      setGlobalState("connectedAccount", accounts[0]);
     } else {
       alert("Please connect wallet.");
       console.log("No accounts found.");
@@ -62,6 +65,19 @@ const isWallectConnected = async () => {
   } catch (error) {
     reportError(error);
   }
+};
+
+const getEthereumContract = () => {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  console.log(ethereum);
+  const signer = provider.getSigner();
+  const transactionContract = new ethers.Contract(
+    mumbai.flowContract,
+    flow,
+    signer
+  );
+
+  return transactionContract;
 };
 
 const structuredFlow = (flow) => {
@@ -77,45 +93,34 @@ const structuredFlow = (flow) => {
     .reverse();
 };
 
-const signers = ethers.getSigners();
-deployer = signers[0];
-depositor = signers[1];
-withdrawer = signers[2];
-goodSigner = signers[3];
-
-const deployment = deployFlow(deployer, mumbai.flowFactory);
-mumbai.flowContract = deployment.flow;
-dispatchDeposit = deployment.deposit;
-dispatchWithdraw = deployment.withdraw;
-dispatchCancel = deployment.cancel;
-
 const getAllFlows = async () => {
   try {
-    if (!ethereum) return alert("Please install Metamask");
-
     const contract = await getEtheriumContract();
-    const flows = await contract.methods.getAllFlows().call();
+    const flow = await contract.methods.flow().call();
     const transactions = await contract.methods.getAllTransactions().call();
 
-    setGlobalState("flow", structuredFlow(flows));
+    setGlobalState("flow", structuredFlow(flow));
     setGlobalState("transactions", structuredFlow(transactions));
   } catch (error) {
     reportError(error);
   }
 };
 
-const deposit = async ({ file, depositor, withdrawer, price, erc }) => {
+const deposit = async ({ dispatchDeposit, fileHash, signedContext }) => {
   try {
-    amount = window.web3.utils.toWei(amount.toString(), "ether");
-    const contract = await getEtheriumContract();
-    const account = getGlobalState("connectedAccount");
-    const depositprice = window.web3.utils.toWei("0", "ether");
-
-    await contract.methods
-      .flow(file, depositor, withdrawer, price, erc)
-      .send({ from: account, value: depositprice });
-
-    return true;
+    const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    // console.log(provider);
+    const Flow = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
+    const tokenId = await Flow.deployTransaction(
+      dispatchDeposit,
+      fileHash,
+      signedContext
+    );
+    console.log(tokenId);
+    console.log("Success");
+    return tokenId;
   } catch (error) {
     reportError(error);
   }
@@ -126,4 +131,4 @@ const reportError = (error) => {
   throw new Error("No ethereum object.");
 };
 
-export { getAllFlows, connectWallet, deposit, isWallectConnected };
+export { getAllFlows, isWallectConnected, deposit };

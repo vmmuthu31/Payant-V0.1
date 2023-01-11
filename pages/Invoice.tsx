@@ -28,7 +28,11 @@ import Login from './Login';
 import Form from './Depositform';
 import UseInvoice from './UseInvoice';
 import { verifyMessage } from 'ethers/lib/utils'
-
+import Depositform from './Depositform';
+const DynamicComponentWithNoSSR = dynamic(
+  () => import('./Depositform'),
+  { ssr: false }
+)
 const navigation = [
   { name: 'Dashboard', href: '/Dashboard', icon: HomeIcon, current: false },
   { name: 'Create an invoice', href: '#', icon: PlusCircleIcon, current: true },
@@ -274,7 +278,7 @@ const Invoice = () => {
           <main >
                 <div className='  py-36'>
                   
-                  <UseInvoice />
+                  <DynamicComponentWithNoSSR />
                 </div>
           </main>
         </div>

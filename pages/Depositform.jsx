@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios, * as others from "axios";
 import {
   useGlobalState,
@@ -10,40 +10,26 @@ import {
   setAlert,
 } from "../store";
 import { create } from "ipfs-http-client";
-import deposit from "./Blockchain.Services";
-
-const auth =
-  "Basic " +
-  Buffer.from(
-    process.env.REACT_APP_INFURIA_PID + ":" + process.env.REACT_APP_INFURIA_API
-  ).toString("base64");
-
-const client = create({
-  host: "ipfs.infura.io",
-  port: 5001,
-  protocol: "https",
-  headers: {
-    authorization: auth,
-  },
-});
+import { deposit, isWallectConnected } from "./Blockchain.Services";
 
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
-  const [file, setFile] = useState("");
-  const [depositor, setDepositor] = useState("");
-  const [withdrawer, setWithdrawer] = useState("");
-  const [price, setPrice] = useState("");
-  const [erc, setErc] = useState("");
+  const [fileHash, setFileHash] = useState("");
+  const [dispatchDeposit, setDispatchDeposit] = useState("");
+  const [signedContext, setSignedContext] = useState("");
   const [imgBase64, setImgBase64] = useState(null);
   const resetForm = () => {
-    setFile("");
-    setDepositor("");
-    setWithdrawer("");
-    setOne("");
-    setErc("");
+    setFileHash("");
+    setDispatchDeposit("");
+    setSignedContext("");
     setImgBase64(null);
   };
-
+  useEffect(async () => {
+    await isWallectConnected();
+    return () => {
+      console.log("This will be logged on unmount");
+    };
+  }, []);
   const changeImage = async (e) => {
     const reader = new FileReader();
     if (e.target.files[0]) reader.readAsDataURL(e.target.files[0]);
@@ -51,26 +37,24 @@ const Depositform = () => {
     reader.onload = (readerEvent) => {
       const file = readerEvent.target.result;
       setImgBase64(file);
-      setFile(e.target.files[0]);
+      setFileHash(e.target.files[0]);
     };
   };
 
   const handleSubmission = async (e) => {
-    console.log("Deposit submission");
+    // console.log("Deposit submission");
     e.preventDefault();
-    if (!file || !depositor || !price) return;
+    if (!fileHash || !dispatchDeposit || !signedContext) return;
 
     setGlobalState("modal", "scale-0");
     setGlobalState("loading", { show: true, msg: "Uploading data..." });
 
     const formData = new FormData();
-    formData.append("file", file);
+    formData.append("file", fileHash);
     const metadata = JSON.stringify({
-      name: depositor,
+      name: dispatchDeposit,
       keyvalues: {
-        price: price,
-        withdraw: withdrawer,
-        description: erc,
+        signature: signedContext,
       },
     });
     formData.append("pinataMetadata", metadata);
@@ -93,25 +77,17 @@ const Depositform = () => {
           },
         }
       );
-      const created = res.data.IpfsHash;
-      console.log(created);
-      const metadataURI = `https://ipfs.io/ipfs/${created}`;
-      const flows = { file, depositor, withdrawer, price, erc };
-      setLoadingMsg("Intializing transaction...");
-      setFile(metadataURI);
-      console.log(metadataURI);
-      await deposit(flows);
-      resetForm();
-      setAlert("Deposit completed...", "green");
-      window.location.reload();
-      setLoadingMsg("File Uploaded completed successfully");
-      console.log("File Uploaded completed successfully...");
-      setLoadingMsg("Intializing transaction...");
-      console.log(flows);
-      setGlobalState("loading", { show: false });
+      // ** Completed Uploading to the Pinata and Got the Hash Value
+
+      const fileHash = res.data.IpfsHash;
+      console.log(fileHash);
+      // const metadataURI = `https://ipfs.io/ipfs/${created}`;
+      const flow = await deposit({ dispatchDeposit, fileHash, signedContext });
+      // setFileHash(metadataURI);
+      console.log(flow);
     } catch (error) {
       console.log(error);
-      setAlert("transaction failed...", "red");
+      setAlert("loading", { show: false });
     }
   };
   return (
@@ -157,8 +133,8 @@ const Depositform = () => {
                     type="text"
                     name="title"
                     placeholder="Depositor"
-                    onChange={(e) => setDepositor(e.target.value)}
-                    value={depositor}
+                    onChange={(e) => setDispatchDeposit(e.target.value)}
+                    value={dispatchDeposit}
                     required
                   />
                 </div>
@@ -169,8 +145,6 @@ const Depositform = () => {
                     type="number"
                     name="price"
                     placeholder="Price (Eth)"
-                    onChange={(e) => setPrice(e.target.value)}
-                    value={price}
                     required
                   />
                 </div>
@@ -180,22 +154,11 @@ const Depositform = () => {
                     className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5"
                     name="description"
                     placeholder="Withdrawer Address"
-                    onChange={(e) => setWithdrawer(e.target.value)}
-                    value={withdrawer}
+                    onChange={(e) => setSignedContext(e.target.value)}
+                    value={signedContext}
                     required
                   ></textarea>
                 </div>
-                <div className="">
-                  <textarea
-                    className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-[#F4F4F4] focus:border-[#F4F4F4] block w-full p-2.5"
-                    name="description"
-                    placeholder="ERC Value"
-                    onChange={(e) => setErc(e.target.value)}
-                    value={erc}
-                    required
-                  ></textarea>
-                </div>
-
                 <button
                   type="submit"
                   onClick={handleSubmission}

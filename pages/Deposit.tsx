@@ -10,6 +10,7 @@ import { deposit } from "./Blockchain.Services";
 import axios from "axios";
 import Image from "next/image";
 
+
 const auth =
   "Basic " +
   Buffer.from(
