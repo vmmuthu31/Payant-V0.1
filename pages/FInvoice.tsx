@@ -126,7 +126,6 @@ console.log(token);
                   <form onSubmit={(e)=> submit(e)} className="form space-y-2">
       <input
         type="text"
-        name="fullname"
         placeholder="Description"
         className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
         onChange={(e) => handle(e)} name="description" id="description" value={data.description}
@@ -134,14 +133,12 @@ console.log(token);
           <div className="flex gap-5">
      <input
       type="text"
-      name="fullname"
       placeholder="Start Date"
       onChange={(e) => handle(e)} name="contractStartTime" id="contractStartTime" value={data.contractStartTime}
       className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
     />
      <input
       type="text"
-      name="fullname"
       placeholder="End Date"
       onChange={(e) => handle(e)} name="contractEndTime" id="contractEndTime" value={data.contractEndTime}
       className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -149,28 +146,24 @@ console.log(token);
     </div>
       <input
         type="text"
-        name="fullname"
         placeholder="Contract Amount"
         onChange={(e) => handle(e)} name="contractAmount" id="contractAmount" value={data.contractAmount}
         className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       <input
         type="text"
-        name="fullname"
         placeholder="Contract Currency Name"
         onChange={(e) => handle(e)} name="contractCurrency" id="contractCurrency" value={data.contractCurrency}
         className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       <input
         type="text"
-        name="fullname"
         placeholder="Client"
         onChange={(e) => handle(e)} name="client" id="client" value={data.client}
         className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
        <input
         type="text"
-        name="fullname"
         placeholder="Contract ID"
         onChange={(e) => handle(e)} name="contractId" id="contractId" value={data.contractId}
         className="border border-gray-300 text-black sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
