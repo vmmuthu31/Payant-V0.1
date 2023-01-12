@@ -1,8 +1,8 @@
 import Web3 from "web3";
 import { setGlobalState, getGlobalState, setAlert } from "../store/index";
-import mumbai from "../pages/contracts/mumbai.json";
-import contract from "../pages/contracts/Flow.json";
-import ERC20 from "../pages/contracts/ER20.json";
+import mumbai from "./contracts/mumbai.json";
+import contract from "./contracts/Flow.json";
+import ERC20 from "./contracts/ER20.json";
 import { ethers } from "ethers";
 
 const { ethereum } = window;
