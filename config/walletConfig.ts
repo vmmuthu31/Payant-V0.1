@@ -25,30 +25,30 @@ const { wallets } = getDefaultWallets({
   chains,
 })
 
-const connectors = connectorsForWallets([
-  ...wallets,
-  {
-    groupName: "More",
-    wallets: [
-      trustWallet({
-        chains,
-        shimDisconnect: true,
-      }),
-      argentWallet({ chains }),
-      braveWallet({
-        chains,
-        shimDisconnect: true,
-      }),
-      ledgerWallet({ chains }),
-      omniWallet({ chains }),
-      imTokenWallet({ chains }),
-    ],
-  },
-])
+// const connectors = connectorsForWallets([
+//   ...wallets,
+//   {
+//     groupName: "More",
+//     wallets: [
+//       trustWallet({
+//         chains,
+//         shimDisconnect: true,
+//       }),
+//       argentWallet({ chains }),
+//       braveWallet({
+//         chains,
+//         shimDisconnect: true,
+//       }),
+//       ledgerWallet({ chains }),
+//       omniWallet({ chains }),
+//       imTokenWallet({ chains }),
+//     ],
+//   },
+// ])
 
 export const wagmiClient = createClient({
   autoConnect: true,
-  connectors,
+  // connectors,
   provider,
   webSocketProvider,
 })
