@@ -26,7 +26,7 @@ import dynamic from "next/dynamic";
 import Link from 'next/link';
 import DashCard from './DashCard';
 import { verifyMessage } from 'ethers/lib/utils'
-import Signup from './Signup';
+
 
 const navigation = [
   { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
@@ -276,7 +276,6 @@ const Dashboard = () => {
           <main >
             <div >
              <DashCard />
-             <Signup />
             </div>
           </main>
         </div>
