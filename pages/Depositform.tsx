@@ -19,7 +19,6 @@ import BigNumber from 'bignumber.js';
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
   const [fileHash, setFileHash] = useState("");
-  const [dispatchDeposit, setDispatchDeposit] = useState("");
   const [signedContext, setSignedContext] = useState("");
   const { address} = useAccount();
   const [imgBase64, setImgBase64] = useState(null);
@@ -37,7 +36,6 @@ const Depositform = () => {
   };
   const resetForm = () => {
     setFileHash("");
-    setDispatchDeposit("");
     setSignedContext("");
     setImgBase64(null);
   };
@@ -60,9 +58,10 @@ const Depositform = () => {
   };
 
   const handleSubmission = async (e) => {
+   
     // console.log("Deposit submission");
     e.preventDefault();
-    if (!fileHash || !dispatchDeposit) return;
+    if (!fileHash ) return;
 
     setGlobalState("modal", "scale-0");
     setGlobalState("loading", { show: true, msg: "Uploading data..." });
@@ -70,7 +69,6 @@ const Depositform = () => {
     const formData = new FormData();
     formData.append("file", fileHash);
     const metadata = JSON.stringify({
-      name: dispatchDeposit,
       keyvalues: {
         signature: signedContext,
       },
@@ -96,7 +94,6 @@ const Depositform = () => {
         }
       );
       // ** Completed Uploading to the Pinata and Got the Hash Value
-
       // const fileHash = res.data.IpfsHash;
       const fileHash = 1
       console.log(res.data.IpfsHash);
@@ -126,7 +123,7 @@ const Depositform = () => {
       ];
       
       // const metadataURI = `https://ipfs.io/ipfs/${created}`;
-      const flow = await deposit({ dispatchDeposit, fileHash, signedContext });
+      const flow = await deposit({ fileHash, signedContext });
       // setFileHash(metadataURI);
       console.log(flow);
     } catch (error) {
@@ -177,8 +174,7 @@ const Depositform = () => {
                     type="text"
                     name="title"
                     placeholder="Dispatch Deposit"
-                    onChange={(e) => setDispatchDeposit(e.target.value)}
-                    value={dispatchDeposit}
+                   
                     required
                   />
                 </div>
