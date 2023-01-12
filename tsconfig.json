@@ -1,55 +1,32 @@
 {
-  "version": "2.1.4",
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowJs": false,
-    "isolatedModules": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "noImplicitAny": false,
-    "noImplicitUseStrict": true,
-    "noEmitHelpers": false,
-    "removeComments": true,
-    "noLib": false,
-    "sourceMap": true,
-    "inlineSources": true,
-    "preserveConstEnums": true,
-    "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "rootDir": "./src",
-    "outDir": "./lib",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
   },
   "include": [
-    "./src/**/*"
-  ],
-  "compileOnSave": true,
-  "atom": {
-    "rewriteTsconfig": false
-  },
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/Content.tsx",
+    "pages/Content.tsx"
+, "pages/Hero.js", "pages/Hero.js", "pages/Header.js", "pages/Header.js"  ],
   "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "smartcontracts"
+    "node_modules"
   ]
 }
