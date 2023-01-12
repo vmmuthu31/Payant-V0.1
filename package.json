@@ -37,6 +37,7 @@
     "react-hooks-global-state": "^1.0.2",
     "react-spinners": "^0.13.7",
     "react-step-progress-bar": "^1.0.3",
+    "react-to-print": "^2.14.11",
     "react-toastify": "^9.1.1",
     "reactjs-popup": "^2.0.5",
     "siwe": "^1.1.6",
