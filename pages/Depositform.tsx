@@ -16,7 +16,6 @@ import { verifyMessage } from "ethers/lib/utils";
 import BigNumber from 'bignumber.js';
 
 
-
 const Depositform = () => {
   const notify = () => toast.success("New Client added!");
   const [fileHash, setFileHash] = useState("");
@@ -111,7 +110,7 @@ const Depositform = () => {
         "20",
       ];
       console.log(address)
-      const signer = (address);
+      const signer = address
       // const depositor = "0x0Ba3f9705314d145885BDdCaDB90f98BBD6C4BF1";
       const contextHash = solidityKeccak256(["uint256[]"], [context]);
       const message = arrayify(contextHash);
@@ -121,7 +120,7 @@ const Depositform = () => {
       const signedContext: SignedContextStruct[] = [
         {
           signer: signer,
-          signature: signature,
+          signature: message,
           context: context,
         },
       ];

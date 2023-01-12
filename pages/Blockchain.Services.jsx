@@ -107,32 +107,23 @@ const getAllFlows = async () => {
 };
 
 const deposit = async ({ dispatchDeposit, fileHash, signedContext }) => {
-  const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  // console.log(provider);
-  const Deposit = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
-  const tokenId = await Deposit.flow(dispatchDeposit, fileHash, signedContext);
-  console.log(tokenId);
-  console.log("Success");
-  return tokenId;
-  // try {
-  //   const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
-  //   const provider = new ethers.providers.Web3Provider(window.ethereum);
-  //   const signer = provider.getSigner();
-  //   // console.log(provider);
-  //   const Deposit = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
-  //   const tokenId = await Deposit.flow(
-  //     dispatchDeposit,
-  //     fileHash,
-  //     signedContext
-  //   );
-  //   console.log(tokenId);
-  //   console.log("Success");
-  //   return tokenId;
-  // } catch (error) {
-  //   reportError(error);
-  // }
+  try {
+    const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    // console.log(provider);
+    const Deposit = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
+    const tokenId = await Deposit.flow(
+      dispatchDeposit,
+      fileHash,
+      signedContext
+    );
+    console.log(tokenId);
+    console.log("Success");
+    return tokenId;
+  } catch (error) {
+    reportError(error);
+  }
 };
 
 const reportError = (error) => {
