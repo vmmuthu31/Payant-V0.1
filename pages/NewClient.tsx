@@ -118,7 +118,7 @@ const Deliverables = () => {
                       ? `${ensName} (${address})`
                       : truncateEthAddress(address)}
                   </div>
-                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                  <button onClick={()=> {disconnect}} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
                     Disconnect
                   </button>
                 </div>
@@ -191,7 +191,7 @@ const Deliverables = () => {
                       ? `${ensName} (${address})`
                       : truncateEthAddress(address)}
                   </div>
-                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                  <button onClick={()=> {disconnect}} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
                     Disconnect
                   </button>
                 </div>

@@ -131,12 +131,12 @@ const Deliverables = () => {
                       ? `${ensName} (${address})`
                       : truncateEthAddress(address)}
                   </div>
-                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                  <button onClick={()=> {disconnect}} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
                     Disconnect
                   </button>
                 </div>
                 <button onClick={handleSign} className="">Sign In</button>
-</>
+                </>
               ) : (
                 <div>
                   {connectors.map((connector) => (
@@ -206,7 +206,7 @@ const Deliverables = () => {
                       ? `${ensName} (${address})`
                       : truncateEthAddress(address)}
                   </div>
-                  <button onClick={disconnect} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
+                  <button onClick={()=> {disconnect}} className=" border-2 pr-2 rounded-md pl-2 border-red-600">
                     Disconnect
                   </button>
                 </div>
