@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import FInvoice from "./components/FInvoice";
-import SInvoice from "./components/SInvoice";
 import TInvoice from "./components/TInvoice";
 import LInvoice from "./components/LInvoice";
 import MultiStepProgressBar from "./components/MultiStepProgressBar";
