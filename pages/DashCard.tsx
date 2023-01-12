@@ -203,7 +203,7 @@ export default function DashCard() {
                  <Popup
     trigger={<button className="border-2 pr-2 p-1 hover:text-white hover:bg-[#4E00E4]  rounded-md pl-6 text-[#4E00E4] border-[#4E00E4] flex">New Client <PlusCircleIcon className="m-1.5 plus-icon hover:text-white " /> </button>}
     modal>
-    {close => (
+    (
       <div className="modal">
         <button className="close" onClick={close}>
           &times;
@@ -248,7 +248,7 @@ export default function DashCard() {
        
       </div>
       </div>
-    )}
+    )
   </Popup>
                  
                  </div>
