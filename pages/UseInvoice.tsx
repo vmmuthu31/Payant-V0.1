@@ -35,11 +35,7 @@ const UseInvoice = () => {
   ];
 
   const PageDisplay = () => {
-    if (page === 0)
-      return <FInvoice nextStep={nextStep} handleChange={handleChange} />;
-    else if (page === 1)
-      return <SInvoice nextStep={nextStep} handleChange={handleChange} />;
-    else if (page === 2)
+     if (page === 2)
       return <TInvoice nextStep={nextStep} handleChange={handleChange} />;
     else return <LInvoice nextStep={nextStep} handleChange={handleChange} />;
   };
