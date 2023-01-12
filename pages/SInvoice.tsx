@@ -72,7 +72,7 @@ const SInvoice= () => {
         const message = arrayify(contextHash);
         const signature = signMessage({ message });
         
-        console.log(message);
+        console.log(signature);
         const signedContext: SignedContextStruct[] = [
           {
             signer: signer,
