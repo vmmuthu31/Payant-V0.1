@@ -2,6 +2,7 @@ import Web3 from "web3";
 import { setGlobalState, getGlobalState, setAlert } from "../store/index";
 import mumbai from "../pages/contracts/mumbai.json";
 import contract from "../pages/contracts/Flow.json";
+import ERC20 from "../pages/contracts/ER20.json";
 import { ethers } from "ethers";
 
 const { ethereum } = window;
@@ -115,14 +116,20 @@ const deposit = async ({ fileHash, signedContext }) => {
   const Deposit = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
   const tokenId = await Deposit.flow(dispatch, fileHash, signedContext);
   console.log(tokenId);
-  console.log("Success");
+  console.log("Flow deployed");
   return tokenId;
+};
 
-  // try {
-
-  // } catch (error) {
-  //   reportError(error);
-  // }
+const approve = async ({ amount }) => {
+  const CONTRACT_ADDRESS = "0xD6802016dca8a32C0087B20bfb3726bDfCd71463";
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const Allow = new ethers.Contract(CONTRACT_ADDRESS, ERC20, signer);
+  const spender = mumbai.flowContract;
+  const tokenId = await Allow.approve(spender, amount);
+  console.log(tokenId);
+  console.log("Token Approved");
+  return tokenId;
 };
 
 const reportError = (error) => {
@@ -130,4 +137,4 @@ const reportError = (error) => {
   throw new Error("No ethereum object.");
 };
 
-export { getAllFlows, isWallectConnected, deposit };
+export { getAllFlows, isWallectConnected, deposit, approve };

@@ -32,7 +32,7 @@ import Depositform  from './Depositform';
 
 
 const DynamicComponentWithNoSSR = dynamic(
-  () => import('./FInvoice'),
+  () => import('./SInvoice'),
   { ssr: false }
 )
 const navigation = [
@@ -49,7 +49,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Invoice = () => {
+const SignInvoice = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { address, isConnected } = useAccount();
@@ -279,7 +279,7 @@ const Invoice = () => {
             </button>
           </div>
           <main >
-                <div className='py-10'>
+                <div className='py-32'>
                   <DynamicComponentWithNoSSR />
                 </div>
           </main>
@@ -289,4 +289,4 @@ const Invoice = () => {
   )
 }
 
-export default dynamic (() => Promise.resolve(Invoice), {ssr: false})
+export default dynamic (() => Promise.resolve(SignInvoice), {ssr: false})

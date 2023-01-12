@@ -6,7 +6,7 @@ import { useState } from "react";
 import axios, * as others from 'axios';
 
 export default function Login() {
-    const url = "http://localhost:3000/api/v2/user/login"
+    const url = "http://localhost:3001/api/v2/user/login"
     const [data,setData] = useState({
         email: "",
         password: "",
@@ -19,6 +19,9 @@ export default function Login() {
             password: data.password,
         })
         .then(res=>{
+            localStorage.setItem('myData', Object.values(res.data.data));
+            const token = localStorage.getItem('myData');
+            console.log(token);
             console.log(res.data)
             if(res.data.status == true){
                 window.location = "/Dashboard"
@@ -27,7 +30,7 @@ export default function Login() {
             }else{
                 alert("Email id is not registered!/Check your password")
                 console.log("Email id is not registered!/Check your password")
-            }
+            }   
         })
     }
     function handle(e){

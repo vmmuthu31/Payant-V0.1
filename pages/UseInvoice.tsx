@@ -65,7 +65,7 @@ const UseInvoice = () => {
                   <div>
                   <div className="userForm-container-body">{PageDisplay()}</div>
                   </div>
-                  <button
+                  {/* <button
                   className="btn"
             onClick={() => {
               if (page === pageSubTitiles.length - 1) {
@@ -80,7 +80,7 @@ const UseInvoice = () => {
               : "Next" && page === pageTitles.length - 1 
               ? "Track Payment"
               : "Next"}
-          </button>
+          </button> */}
               </div>
           </div>
       </div>

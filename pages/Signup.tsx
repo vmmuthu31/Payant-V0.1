@@ -7,7 +7,8 @@ import { useState } from "react";
 import axios, * as others from 'axios';
 
 const Signup = () => {
-    const url = "http://localhost:3000/api/v2/user/register"
+   
+    const url = "http://localhost:3001/api/v2/user/register"
     const [data,setData] = useState({
         email: "",
         password: "",
@@ -22,7 +23,7 @@ const Signup = () => {
         .then(res=>{
             console.log(res.data)
             if(res.data.status == true){
-                window.location = "/Verify"
+                window.location = "/Invoice"
                 console.log("Successfully Registered!")
                 alert("Successfully Registered Please Login")
             }else{
@@ -38,6 +39,7 @@ const Signup = () => {
         setData(newdata)
         console.log(newdata)
     }
+    
   return (
     <div className= "bg-img1 md:h-screen lg:py-0 ">
       <Head>

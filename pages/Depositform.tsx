@@ -147,16 +147,6 @@ const Depositform = () => {
                 Add Client
               </p>
               <div className="space-y-4 md:space-y-6">
-                <div className="shrink-0 rounded-xl mx-auto overflow-hidden h-20 w-20">
-                  <img
-                    alt=""
-                    className="h-full w-full object-cover cursor-pointer"
-                    src={
-                      imgBase64 ||
-                      "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
-                    }
-                  />
-                </div>
                 <div>
                   <label className="block">
                     <span className="sr-only">Upload file</span>
