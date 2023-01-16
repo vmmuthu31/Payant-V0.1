@@ -107,14 +107,16 @@ const getAllFlows = async () => {
   }
 };
 
-const deposit = async ({ fileHash, signedContext }) => {
+const deposit = ({ fileHash, signedContext }) => {
   const CONTRACT_ADDRESS = "0x91a8eE434A0Be84fC92f1D195CC01603dc535c4c";
   const dispatch = mumbai.dispatchDeposit;
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   // console.log(provider);
+  const bigNumber = ethers.BigNumber.from("1000000000000000");
+  console.log("BigNumber: ", ethers.utils.formatEther(bigNumber));
   const Deposit = new ethers.Contract(CONTRACT_ADDRESS, contract.abi, signer);
-  const tokenId = await Deposit.flow(dispatch, fileHash, signedContext);
+  const tokenId = Deposit.flow(dispatch, fileHash, signedContext);
   console.log(tokenId);
   console.log("Flow deployed");
   return tokenId;

@@ -152,7 +152,8 @@
         "name": "flow",
         "outputs": [],
         "stateMutability": "payable",
-        "type": "function"
+        "type": "function",
+        "gas": 300000
       },
       {
         "inputs": [

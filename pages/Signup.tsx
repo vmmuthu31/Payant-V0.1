@@ -23,7 +23,7 @@ const Signup = () => {
         .then(res=>{
             console.log(res.data)
             if(res.data.status == true){
-                window.location = "/Invoice"
+                window.location = "/Verify"
                 console.log("Successfully Registered!")
                 alert("Successfully Registered Please Login")
             }else{

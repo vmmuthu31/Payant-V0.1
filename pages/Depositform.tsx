@@ -83,7 +83,7 @@ const Depositform = () => {
         "https://api.pinata.cloud/pinning/pinFileToIPFS",
         formData,
         {
-          maxBodyLength: "Infinity",
+          maxBodyLength: 50,
           headers: {
             "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
             // Authorization: JWT

@@ -84,7 +84,6 @@ const SInvoice= () => {
         console.log(amount);
         const allow = await approve({amount})
         console.log(allow);
-        // const metadataURI = `https://ipfs.io/ipfs/${created}`;
         const flow = await deposit({ fileHash, signedContext });
         // setFileHash(metadataURI);
         console.log(flow);
